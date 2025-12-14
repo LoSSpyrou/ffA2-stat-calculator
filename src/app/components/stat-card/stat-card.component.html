@@ -1,0 +1,24 @@
+<div
+  class="stat-container border-4 border-black p-2 rounded-2xl inline-block bg-cover bg-cyan-600 shadow-2xl"
+  [ngStyle]="{
+    'background-image': stats.job.img ? 'url(' + stats.job.img + ')' : 'none'
+  }"
+  [class.right-arrow]="rightArrow"
+>
+  <div class="grid grid-cols-2 w-56">
+    <div class="flex items-center col-span-2">
+      <img
+        class="rounded-full border-2 border-black"
+        [src]="stats.job.sprite"
+      />
+      <span class="mx-2">
+        {{ stats.job.name }}
+      </span>
+      <span class="ml-auto">{{ stats.level }}</span>
+    </div>
+    <ng-container *ngFor="let stat of allStats">
+      <div>{{ stat }}</div>
+      <div>{{ stats.stats[stat] }}</div>
+    </ng-container>
+  </div>
+</div>

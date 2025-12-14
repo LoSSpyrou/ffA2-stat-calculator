@@ -1,0 +1,205 @@
+<form>
+  <div
+    class="grid gap-4 mb-6 grid-cols-2 bg-cyan-600 dark:bg-slate-800 p-4 rounded clip border-2 border-black"
+  >
+    <div class="col-span-2 text-xl">Stats berechnen</div>
+    <div class="col-span-2">
+      <select
+        id="baseStatJob"
+        [(ngModel)]="selectedBaseJob"
+        (change)="setBaseStats()"
+        name="baseStatJob"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option [ngValue]="undefined" selected>Choose a Job as Baseline</option>
+        <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
+      </select>
+    </div>
+    <div>
+      <stat-input
+        label="HP"
+        [(statValue)]="charStats.stats[statsEnum.HP]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="MP"
+        [(statValue)]="charStats.stats[statsEnum.MP]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="W.ATK"
+        [(statValue)]="charStats.stats[statsEnum.WATK]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="W.DEF"
+        [(statValue)]="charStats.stats[statsEnum.WDEF]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="M.ATK"
+        [(statValue)]="charStats.stats[statsEnum.MATK]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="M.DEF"
+        [(statValue)]="charStats.stats[statsEnum.MDEF]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input
+        label="SPD"
+        [(statValue)]="charStats.stats[statsEnum.SPD]"
+      ></stat-input>
+    </div>
+    <div>
+      <stat-input label="Level" [(statValue)]="charStats.level"></stat-input>
+    </div>
+    <div>
+      <label
+        for="job1"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Select a job</label
+      >
+      <select
+        id="job1"
+        [(ngModel)]="selectedFirstJob"
+        (ngModelChange)="calculateFinalStats()"
+        name="job1"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option [ngValue]="undefined" selected>Choose a Job</option>
+        <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
+      </select>
+    </div>
+    <div>
+      <label
+        for="targetLevel"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Select a target Level</label
+      >
+      <input
+        type="number"
+        id="targetLevel"
+        name="targetLevel"
+        [(ngModel)]="targetLevel"
+        (ngModelChange)="calculateFinalStats()"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+    </div>
+    <div>
+      <label
+        for="primaryStat"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Select a stat to optimize for</label
+      >
+      <select
+        id="primaryStat"
+        [(ngModel)]="selectedOptimizeStat"
+        (ngModelChange)="optimizeStats()"
+        name="primaryStat"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option [ngValue]="undefined" selected>Choose a Stat</option>
+        <option *ngFor="let stat of stats" [ngValue]="stat">{{ stat }}</option>
+      </select>
+    </div>
+    <div>
+      <label
+        for="secondaryStat"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Select a secondary stat to optimize for</label
+      >
+      <select
+        id="secondaryStat"
+        [(ngModel)]="selectedSecondaryStat"
+        name="secondaryStat"
+        (ngModelChange)="optimizeStats()"
+        [disabled]="!selectedOptimizeStat"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option [ngValue]="undefined" selected>Choose a Stat</option>
+        <option
+          *ngFor="let stat of stats | statFilter : selectedOptimizeStat"
+          [ngValue]="stat"
+        >
+          {{ stat }}
+        </option>
+      </select>
+    </div>
+  </div>
+</form>
+<div class="grid gap-6 mb-6 grid-cols-2">
+  <ul class="list-none">
+    <li>HP: {{ charStats.stats[statsEnum.HP] }}</li>
+    <li>MP: {{ charStats.stats[statsEnum.MP] }}</li>
+    <li>
+      W.ATK: {{ charStats.stats[statsEnum.WATK] }} ({{
+        charStats.stats[statsEnum.WATK] / 4 | number : '1.0-1'
+      }})
+    </li>
+    <li>
+      W.DEF: {{ charStats.stats[statsEnum.WDEF] }} ({{
+        charStats.stats[statsEnum.WDEF] / 4 | number : '1.0-1'
+      }})
+    </li>
+    <li>
+      M.ATK: {{ charStats.stats[statsEnum.MATK] }} ({{
+        charStats.stats[statsEnum.MATK] / 4 | number : '1.0-1'
+      }})
+    </li>
+    <li>
+      M.DEF: {{ charStats.stats[statsEnum.MDEF] }} ({{
+        charStats.stats[statsEnum.MDEF] / 4 | number : '1.0-1'
+      }})
+    </li>
+    <li>SPD: {{ charStats.stats[statsEnum.SPD] }}</li>
+  </ul>
+  <ul class="list-none">
+    <li>
+      HP: {{ chatStatsAtTargetLevel.stats[statsEnum.HP] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.HP] / 4
+      }})
+    </li>
+    <li>
+      MP: {{ chatStatsAtTargetLevel.stats[statsEnum.MP] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.MP] / 4
+      }})
+    </li>
+    <li>
+      W.ATK: {{ chatStatsAtTargetLevel.stats[statsEnum.WATK] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.WATK] / 4
+      }})
+    </li>
+    <li>
+      W.DEF: {{ chatStatsAtTargetLevel.stats[statsEnum.WDEF] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.WDEF] / 4
+      }})
+    </li>
+    <li>
+      M.ATK: {{ chatStatsAtTargetLevel.stats[statsEnum.MATK] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.MATK] / 4
+      }})
+    </li>
+    <li>
+      M.DEF: {{ chatStatsAtTargetLevel.stats[statsEnum.MDEF] }} ({{
+        chatStatsAtTargetLevel.stats[statsEnum.MDEF] / 4
+      }})
+    </li>
+    <li>SPD: {{ chatStatsAtTargetLevel.stats[statsEnum.SPD] }}</li>
+  </ul>
+</div>
+<button (click)="debug()">debug</button>
+<div *ngIf="levelGuide">
+  <stat-card
+    class="mr-8"
+    [stats]="levelGuide.firstStats"
+    [rightArrow]="true"
+  ></stat-card>
+  <stat-card [stats]="levelGuide.secondStats" [rightArrow]="false"></stat-card>
+</div>

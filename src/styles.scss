@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'FFA2';
+  src: local('FFA2'),
+    url('./assets/fonts/back-to-1982.regular.ttf') format('truetype');
+}
+
+body {
+  background-image: url('assets/img/FFT_BG_2550x1440.png');
+  font-family: 'FFA2';
+  color: darkblue;
+}
