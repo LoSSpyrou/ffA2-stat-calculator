@@ -215,20 +215,20 @@ export const hume_illusionist: Job = {
   base: {
     HP: 76,
     MP: 38,
+    WATK: 60,
+    WDEF: 64,
     MATK: 92,
     MDEF: 84,
     SPD: 54,
-    WATK: 60,
-    WDEF: 64,
   },
   rate: {
     HP: 5,
     MP: 7,
-    MATK: 9,
-    MDEF: 8,
-    SPD: 0.35,
     WATK: 6,
     WDEF: 6,
+    MATK: 9,
+    MDEF: 8,
+    SPD: 35, // 35% chance per level
   },
 };
 export const hume_blue_mage: Job = {
@@ -238,20 +238,20 @@ export const hume_blue_mage: Job = {
   base: {
     HP: 84,
     MP: 30,
+    WATK: 80,
+    WDEF: 88,
     MATK: 84,
     MDEF: 92,
     SPD: 57,
-    WATK: 80,
-    WDEF: 88,
   },
   rate: {
     HP: 6,
     MP: 3,
-    MATK: 8,
-    MDEF: 9,
-    SPD: 0.5,
     WATK: 8,
     WDEF: 9,
+    MATK: 8,
+    MDEF: 9,
+    SPD: 50, // 50% chance per level
   },
 };
 export const hume_hunter: Job = {
@@ -261,20 +261,20 @@ export const hume_hunter: Job = {
   base: {
     HP: 84,
     MP: 26,
+    WATK: 84,
+    WDEF: 66,
     MATK: 68,
     MDEF: 84,
     SPD: 61,
-    WATK: 84,
-    WDEF: 66,
   },
   rate: {
     HP: 6,
     MP: 3,
-    MATK: 7,
-    MDEF: 8,
-    SPD: 0.65,
     WATK: 8,
     WDEF: 6,
+    MATK: 7,
+    MDEF: 8,
+    SPD: 65, // 65% chance per level
   },
 };
 export const hume_seer: Job = {
@@ -307,20 +307,20 @@ export const hume_sky_pirate: Job = {
   base: {
     HP: 85,
     MP: 14,
+    WATK: 76,
+    WDEF: 74,
     MATK: 76,
     MDEF: 72,
     SPD: 60,
-    WATK: 76,
-    WDEF: 74,
   },
   rate: {
     HP: 6,
     MP: 2,
-    MATK: 7,
-    MDEF: 7,
-    SPD: 0.64,
     WATK: 7,
     WDEF: 7,
+    MATK: 7,
+    MDEF: 7,
+    SPD: 64, // 64% chance per level
   },
 };
 export const hume_heritor: Job = {
@@ -330,20 +330,20 @@ export const hume_heritor: Job = {
   base: {
     HP: 84,
     MP: 36,
+    WATK: 80,
+    WDEF: 86,
     MATK: 84,
     MDEF: 80,
     SPD: 61,
-    WATK: 80,
-    WDEF: 86,
   },
   rate: {
     HP: 6,
     MP: 4,
-    MATK: 8,
-    MDEF: 8,
-    SPD: 0.62,
     WATK: 8,
     WDEF: 8,
+    MATK: 8,
+    MDEF: 8,
+    SPD: 62, // 62% chance per level
   },
 };
 export const hume_agent: Job = {
@@ -353,20 +353,20 @@ export const hume_agent: Job = {
   base: {
     HP: 86,
     MP: 12,
+    WATK: 80,
+    WDEF: 83,
     MATK: 70,
     MDEF: 72,
     SPD: 59,
-    WATK: 80,
-    WDEF: 83,
   },
   rate: {
     HP: 6,
     MP: 2,
-    MATK: 6,
-    MDEF: 7,
-    SPD: 0.54,
     WATK: 8,
     WDEF: 8,
+    MATK: 6,
+    MDEF: 7,
+    SPD: 54, // 54% chance per level
   },
 };
 export const humes: Job[] = [

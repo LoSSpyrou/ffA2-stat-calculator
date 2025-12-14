@@ -12,9 +12,9 @@ import { CharacterStats, defaultCharacterStats, Stat } from '../models/stats';
 import { calculateStats } from '../util/job_util';
 
 @Component({
-    selector: 'app-stat-calculator',
-    templateUrl: './stat-calculator.component.html',
-    standalone: false
+  selector: 'app-stat-calculator',
+  templateUrl: './stat-calculator.component.html',
+  standalone: false,
 })
 export class StatCalculatorComponent {
   charStats: CharacterStats = defaultCharacterStats;
@@ -83,7 +83,8 @@ export class StatCalculatorComponent {
       principle,
       primaryJob.rate[this.selectedOptimizeStat],
       secondJob.rate[this.selectedOptimizeStat],
-      this.charStats.level
+      this.charStats.level,
+      this.selectedOptimizeStat === Stat.SPD
     );
 
     const secondaryLevels = MAX_LEVEL - this.charStats.level - primaryLevels;
