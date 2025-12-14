@@ -1,4 +1,4 @@
-// Enhanced animations and transitions
+/* Enhanced animations and transitions */
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -71,7 +71,7 @@
   }
 }
 
-// Enhanced input focus effects
+/* Enhanced input focus effects */
 .enhanced-input {
   transition: all 0.2s ease-in-out;
 
@@ -86,14 +86,14 @@
   }
 }
 
-// Loading overlay
+/* Loading overlay */
 .loading-overlay {
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(2px);
   display: flex;
-  items: center;
+  align-items: center;
   justify-content: center;
   z-index: 10;
 

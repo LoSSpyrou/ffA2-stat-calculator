@@ -20,6 +20,7 @@
   [max]="maxValue"
   required
   [ngModel]="statValue"
+  [name]="label + 'Input'"
   (ngModelChange)="onInputChange($event)"
   (blur)="onInputBlur()"
 />
