@@ -1,20 +1,57 @@
-<form>
-  <div
-    class="grid gap-4 mb-6 grid-cols-2 bg-cyan-600 dark:bg-slate-800 p-4 rounded clip border-2 border-black"
-  >
-    <div class="col-span-2 text-xl">Stats berechnen</div>
-    <div class="col-span-2">
-      <select
-        id="baseStatJob"
-        [(ngModel)]="selectedBaseJob"
-        (change)="setBaseStats()"
-        name="baseStatJob"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option [ngValue]="undefined" selected>Choose a Job as Baseline</option>
-        <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
-      </select>
+<div class="max-w-6xl mx-auto p-4 space-y-6">
+  <!-- Main Calculator Card -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-slate-700 dark:to-slate-600 p-6">
+      <h1 class="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        FFT A2 Stat Calculator
+      </h1>
+      <p class="text-cyan-100 dark:text-slate-300 mt-2">Optimize your character builds with precision</p>
     </div>
+    
+    <!-- Form Content -->
+    <form class="p-6">
+      <div class="grid gap-6 lg:gap-8">
+        
+        <!-- Job Selection Section -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+            </svg>
+            Baseline Job Selection
+          </h2>
+          <div class="relative">
+            <select
+              id="baseStatJob"
+              [(ngModel)]="selectedBaseJob"
+              (change)="setBaseStats()"
+              name="baseStatJob"
+              class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 block w-full p-3 pr-10 transition-all duration-200 hover:border-cyan-400"
+            >
+              <option [ngValue]="undefined" selected>Choose a Job as Baseline</option>
+              <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+              <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stats Input Section -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            Current Stats
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <div>
       <stat-input
         label="HP"
@@ -64,140 +101,210 @@
         [(statValue)]="charStats.stats[statsEnum.SPD]"
       ></stat-input>
     </div>
-    <div>
-      <label
-        for="levelInput"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Level <span class="text-xs text-gray-500">(1-99)</span></label
-      >
-      <input
-        type="number"
-        id="levelInput"
-        [class]="
-          'block w-full p-2.5 text-sm rounded-lg border ' +
-          (isLevelValid
-            ? 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-            : 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400')
-        "
-        placeholder="1"
-        min="1"
-        max="99"
-        required
-        [(ngModel)]="charStats.level"
-        (ngModelChange)="validateAndUpdateLevel($event)"
-        (blur)="onLevelBlur()"
-      />
-      <div
-        *ngIf="!isLevelValid"
-        class="mt-2 text-sm text-red-600 dark:text-red-500"
-      >
-        <span class="font-medium">{{ levelValidationError }}</span>
+            <div class="col-span-full">
+              <label
+                for="levelInput"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Current Level <span class="text-xs text-gray-500">(1-99)</span></label
+              >
+              <div class="relative">
+                <input
+                  type="number"
+                  id="levelInput"
+                  [class]="
+                    'block w-full p-3 text-sm rounded-lg border transition-all duration-200 ' +
+                    (isLevelValid
+                      ? 'bg-white border-gray-300 text-gray-900 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white hover:border-cyan-400'
+                      : 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-2 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400')
+                  "
+                  placeholder="Enter current level"
+                  min="1"
+                  max="99"
+                  required
+                  [(ngModel)]="charStats.level"
+                  (ngModelChange)="validateAndUpdateLevel($event)"
+                  (blur)="onLevelBlur()"
+                />
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                  <svg *ngIf="isLevelValid" class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                  </svg>
+                  <svg *ngIf="!isLevelValid" class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"/>
+                  </svg>
+                </div>
+              </div>
+              <div
+                *ngIf="!isLevelValid"
+                class="mt-2 text-sm text-red-600 dark:text-red-500 flex items-center gap-2"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"/>
+                </svg>
+                <span class="font-medium">{{ levelValidationError }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Calculation Section -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+            </svg>
+            Level Calculations
+          </h2>
+          <div class="grid gap-4 md:grid-cols-2"
+    >
+            <div>
+              <label
+                for="job1"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Target Job</label
+              >
+              <div class="relative">
+                <select
+                  id="job1"
+                  [(ngModel)]="selectedFirstJob"
+                  (ngModelChange)="calculateFinalStats()"
+                  name="job1"
+                  class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 block w-full p-3 pr-10 transition-all duration-200 hover:border-cyan-400"
+                >
+                  <option [ngValue]="undefined" selected>Choose a Job</option>
+                  <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                  <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label
+                for="targetLevel"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Target Level <span class="text-xs text-gray-500">(1-99)</span></label
+              >
+              <input
+                type="number"
+                id="targetLevel"
+                name="targetLevel"
+                min="1"
+                max="99"
+                placeholder="99"
+                [(ngModel)]="targetLevel"
+                (ngModelChange)="validateAndUpdateTargetLevel($event)"
+                class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 block w-full p-3 transition-all duration-200 hover:border-cyan-400"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Optimization Section -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+            </svg>
+            Stat Optimization
+          </h2>
+          <div class="grid gap-4 md:grid-cols-2"></div>
+            <div>
+              <label
+                for="primaryStat"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Primary Stat to Optimize</label
+              >
+              <div class="relative">
+                <select
+                  id="primaryStat"
+                  [(ngModel)]="selectedOptimizeStat"
+                  (ngModelChange)="optimizeStats()"
+                  name="primaryStat"
+                  class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 block w-full p-3 pr-10 transition-all duration-200 hover:border-orange-400"
+                >
+                  <option [ngValue]="undefined" selected>Choose Primary Stat</option>
+                  <option *ngFor="let stat of stats" [ngValue]="stat">{{ stat }}</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                  <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label
+                for="secondaryStat"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Secondary Stat to Optimize</label
+              >
+              <div class="relative">
+                <select
+                  id="secondaryStat"
+                  [(ngModel)]="selectedSecondaryStat"
+                  name="secondaryStat"
+                  (ngModelChange)="optimizeStats()"
+                  [disabled]="!selectedOptimizeStat"
+                  [class]="
+                    'appearance-none text-sm rounded-lg block w-full p-3 pr-10 transition-all duration-200 ' +
+                    (!selectedOptimizeStat 
+                      ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed dark:bg-gray-600 dark:border-gray-500 dark:text-gray-400'
+                      : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500 hover:border-orange-400')
+                  "
+                >
+                  <option [ngValue]="undefined" selected>Choose Secondary Stat</option>
+                  <option
+                    *ngFor="let stat of stats | statFilter : selectedOptimizeStat"
+                    [ngValue]="stat"
+                  >
+                    {{ stat }}
+          </option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                  <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Optimization Error Display -->
+  <div
+    *ngIf="optimizationError"
+    class="max-w-6xl mx-auto px-4 mb-6"
+  >
+    <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg dark:bg-red-900 dark:border-red-600">
+      <div class="flex items-center">
+        <svg
+          class="w-5 h-5 text-red-400 mr-3"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <div>
+          <h3 class="text-sm font-medium text-red-800 dark:text-red-200">
+            Optimization Error
+          </h3>
+          <p class="mt-1 text-sm text-red-700 dark:text-red-300">
+            {{ optimizationError }}
+          </p>
+        </div>
       </div>
     </div>
-    <div>
-      <label
-        for="job1"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Select a job</label
-      >
-      <select
-        id="job1"
-        [(ngModel)]="selectedFirstJob"
-        (ngModelChange)="calculateFinalStats()"
-        name="job1"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option [ngValue]="undefined" selected>Choose a Job</option>
-        <option *ngFor="let job of jobs" [ngValue]="job">{{ job.name }}</option>
-      </select>
-    </div>
-    <div>
-      <label
-        for="targetLevel"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Select a target Level
-        <span class="text-xs text-gray-500">(1-99)</span></label
-      >
-      <input
-        type="number"
-        id="targetLevel"
-        name="targetLevel"
-        min="1"
-        max="99"
-        placeholder="99"
-        [(ngModel)]="targetLevel"
-        (ngModelChange)="validateAndUpdateTargetLevel($event)"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-    </div>
-    <div>
-      <label
-        for="primaryStat"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Select a stat to optimize for</label
-      >
-      <select
-        id="primaryStat"
-        [(ngModel)]="selectedOptimizeStat"
-        (ngModelChange)="optimizeStats()"
-        name="primaryStat"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option [ngValue]="undefined" selected>Choose a Stat</option>
-        <option *ngFor="let stat of stats" [ngValue]="stat">{{ stat }}</option>
-      </select>
-    </div>
-    <div>
-      <label
-        for="secondaryStat"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Select a secondary stat to optimize for</label
-      >
-      <select
-        id="secondaryStat"
-        [(ngModel)]="selectedSecondaryStat"
-        name="secondaryStat"
-        (ngModelChange)="optimizeStats()"
-        [disabled]="!selectedOptimizeStat"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      >
-        <option [ngValue]="undefined" selected>Choose a Stat</option>
-        <option
-          *ngFor="let stat of stats | statFilter : selectedOptimizeStat"
-          [ngValue]="stat"
-        >
-          {{ stat }}
-        </option>
-      </select>
-    </div>
   </div>
-</form>
-
-<!-- Optimization Error Display -->
-<div
-  *ngIf="optimizationError"
-  class="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg dark:bg-red-900 dark:border-red-700"
->
-  <div class="flex items-center">
-    <svg
-      class="w-4 h-4 text-red-600 dark:text-red-400 mr-2"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-        clip-rule="evenodd"
-      ></path>
-    </svg>
-    <span class="text-sm text-red-800 dark:text-red-400 font-medium"
-      >Optimization Error:</span
-    >
-  </div>
-  <p class="mt-1 text-sm text-red-700 dark:text-red-300">
-    {{ optimizationError }}
-  </p>
-</div>
 
 <div class="grid gap-6 mb-6 grid-cols-2">
   <ul class="list-none">

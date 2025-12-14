@@ -56,6 +56,10 @@ export class StatCalculatorComponent {
   levelValidationError: string = '';
   optimizationError: string = '';
 
+  // UI state
+  isCalculating: boolean = false;
+  isOptimizing: boolean = false;
+
   setBaseStats(): void {
     if (!this.selectedBaseJob) {
       return;
@@ -71,11 +75,17 @@ export class StatCalculatorComponent {
       return;
     }
 
-    this.chatStatsAtTargetLevel =
-      this.statOptimizationService.calculateStatsAtTargetLevel(
-        this.selectedFirstJob,
-        this.targetLevel
-      );
+    this.isCalculating = true;
+
+    // Add a small delay to show loading state
+    setTimeout(() => {
+      this.chatStatsAtTargetLevel =
+        this.statOptimizationService.calculateStatsAtTargetLevel(
+          this.selectedFirstJob!,
+          this.targetLevel!
+        );
+      this.isCalculating = false;
+    }, 150);
   }
 
   optimizeStats(): void {
@@ -88,36 +98,43 @@ export class StatCalculatorComponent {
       return; // Error message is already set in validateOptimization
     }
 
-    // Clear any previous optimization errors
-    this.optimizationError = '';
+    this.isOptimizing = true;
 
-    // Update secondary stats filter using job recommendation service
-    this.secondaryStats = this.jobRecommendationService.getSecondaryStatOptions(
-      this.selectedOptimizeStat
-    );
+    // Add a small delay to show loading state
+    setTimeout(() => {
+      // Clear any previous optimization errors
+      this.optimizationError = '';
 
-    // Get optimal job recommendations
-    const jobRecommendation = this.jobRecommendationService.getOptimalJobs(
-      this.jobs,
-      this.selectedOptimizeStat,
-      this.selectedSecondaryStat
-    );
+      // Update secondary stats filter using job recommendation service
+      this.secondaryStats =
+        this.jobRecommendationService.getSecondaryStatOptions(
+          this.selectedOptimizeStat!
+        );
 
-    // Perform optimization calculation using the service
-    const optimizationResult = this.statOptimizationService.optimizeStats(
-      this.charStats,
-      this.selectedOptimizeStat,
-      this.selectedSecondaryStat,
-      jobRecommendation.primaryJob,
-      jobRecommendation.secondaryJob
-    );
+      // Get optimal job recommendations
+      const jobRecommendation = this.jobRecommendationService.getOptimalJobs(
+        this.jobs,
+        this.selectedOptimizeStat!,
+        this.selectedSecondaryStat!
+      );
 
-    console.log('Principle:', optimizationResult.principle);
-    console.log(
-      `${optimizationResult.primaryLevels} as ${optimizationResult.primaryJob.name}, ${optimizationResult.secondaryLevels} as ${optimizationResult.secondaryJob.name}`
-    );
+      // Perform optimization calculation using the service
+      const optimizationResult = this.statOptimizationService.optimizeStats(
+        this.charStats,
+        this.selectedOptimizeStat!,
+        this.selectedSecondaryStat!,
+        jobRecommendation.primaryJob,
+        jobRecommendation.secondaryJob
+      );
 
-    this.levelGuide = optimizationResult.levelGuide;
+      console.log('Principle:', optimizationResult.principle);
+      console.log(
+        `${optimizationResult.primaryLevels} as ${optimizationResult.primaryJob.name}, ${optimizationResult.secondaryLevels} as ${optimizationResult.secondaryJob.name}`
+      );
+
+      this.levelGuide = optimizationResult.levelGuide;
+      this.isOptimizing = false;
+    }, 300);
   }
 
   validateAndUpdateLevel(level: number) {
