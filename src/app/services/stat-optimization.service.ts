@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CharacterStats, Stat } from '../models/stats';
-import { Job } from '../models/job';
-import { calculateStats } from '../util/job_util';
-import { 
-  getPrinciple, 
-  getRequiredLevels, 
-  MAX_LEVEL,
+import {
   BASE_LEVEL,
+  getPrinciple,
+  getRequiredLevels,
+  MAX_LEVEL,
   validateOptimizationFeasibility,
-  ValidationResult
+  ValidationResult,
 } from '../constants/functions';
+import { Job } from '../models/job';
+import { CharacterStats, Stat } from '../models/stats';
+import { calculateStats } from '../util/job_util';
 
 export interface OptimizationResult {
   levelGuide: {
@@ -32,11 +32,10 @@ export interface LevelPlanningResult {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StatOptimizationService {
-
-  constructor() { }
+  constructor() {}
 
   /**
    * Calculates optimal job progression for stat optimization
@@ -71,7 +70,7 @@ export class StatOptimizationService {
       Math.round(primaryLevels),
       currentStats
     );
-    
+
     const secondStats = calculateStats(
       secondaryJob,
       Math.round(secondaryLevels),
@@ -87,7 +86,7 @@ export class StatOptimizationService {
       secondaryJob,
       primaryLevels,
       secondaryLevels,
-      principle
+      principle,
     };
   }
 
@@ -116,15 +115,17 @@ export class StatOptimizationService {
     const secondaryLevels = MAX_LEVEL - currentStats.level - primaryLevels;
 
     // Validate the level distribution
-    const isValid = primaryLevels >= 0 && secondaryLevels >= 0 && 
-                   (primaryLevels + secondaryLevels + currentStats.level) === MAX_LEVEL;
+    const isValid =
+      primaryLevels >= 0 &&
+      secondaryLevels >= 0 &&
+      primaryLevels + secondaryLevels + currentStats.level === MAX_LEVEL;
 
     return {
       primaryLevels,
       secondaryLevels,
       principle,
       isValid,
-      error: isValid ? undefined : 'Invalid level distribution calculated'
+      error: isValid ? undefined : 'Invalid level distribution calculated',
     };
   }
 
@@ -142,7 +143,10 @@ export class StatOptimizationService {
   /**
    * Sets base stats from a selected job at base level
    */
-  setBaseStatsFromJob(job: Job, baseLevel: number = BASE_LEVEL): CharacterStats {
+  setBaseStatsFromJob(
+    job: Job,
+    baseLevel: number = BASE_LEVEL
+  ): CharacterStats {
     return calculateStats(job, baseLevel);
   }
 

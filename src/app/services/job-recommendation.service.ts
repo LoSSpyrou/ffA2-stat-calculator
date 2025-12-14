@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Job } from '../models/job';
-import { Stat } from '../models/stats';
 import { getJobWithBestRate } from '../constants/functions';
 import { humes } from '../constants/hume_jobs';
+import { Job } from '../models/job';
+import { Stat } from '../models/stats';
 
 export interface JobRecommendation {
   primaryJob: Job;
@@ -10,11 +10,10 @@ export interface JobRecommendation {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JobRecommendationService {
-
-  constructor() { }
+  constructor() {}
 
   /**
    * Finds the best job combinations for optimizing specific stats
@@ -29,7 +28,7 @@ export class JobRecommendationService {
       primaryStat,
       secondaryStat
     );
-    
+
     const secondaryJob = getJobWithBestRate(
       availableJobs.filter((job) => job.name !== primaryJob?.name),
       secondaryStat
@@ -37,14 +36,16 @@ export class JobRecommendationService {
 
     return {
       primaryJob,
-      secondaryJob
+      secondaryJob,
     };
   }
 
   /**
    * Gets all available jobs for a specific race
    */
-  getJobsForRace(race: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq'): Job[] {
+  getJobsForRace(
+    race: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq'
+  ): Job[] {
     // For now, only Hume jobs are implemented
     // This will be expanded in future branches
     switch (race) {
@@ -59,6 +60,6 @@ export class JobRecommendationService {
    * Filters secondary stat options (excludes the primary stat)
    */
   getSecondaryStatOptions(primaryStat: Stat): Stat[] {
-    return Object.values(Stat).filter(stat => stat !== primaryStat);
+    return Object.values(Stat).filter((stat) => stat !== primaryStat);
   }
 }

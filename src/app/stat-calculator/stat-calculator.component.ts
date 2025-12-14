@@ -6,8 +6,8 @@ import {
 } from '../constants/functions';
 import { Job } from '../models/job';
 import { CharacterStats, defaultCharacterStats, Stat } from '../models/stats';
-import { StatOptimizationService } from '../services/stat-optimization.service';
 import { JobRecommendationService } from '../services/job-recommendation.service';
+import { StatOptimizationService } from '../services/stat-optimization.service';
 
 @Component({
   selector: 'app-stat-calculator',
@@ -29,7 +29,7 @@ export class StatCalculatorComponent {
 
   private initializeJobs(): void {
     this.jobs = this.jobRecommendationService.getJobsForRace('hume');
-    this.baseStats = this.jobs.map((job) => 
+    this.baseStats = this.jobs.map((job) =>
       this.statOptimizationService.calculateStatsAtTargetLevel(job, 30)
     );
   }
@@ -61,7 +61,7 @@ export class StatCalculatorComponent {
       return;
     }
     this.charStats = this.statOptimizationService.setBaseStatsFromJob(
-      this.selectedBaseJob, 
+      this.selectedBaseJob,
       BASE_LEVEL
     );
   }
@@ -71,10 +71,11 @@ export class StatCalculatorComponent {
       return;
     }
 
-    this.chatStatsAtTargetLevel = this.statOptimizationService.calculateStatsAtTargetLevel(
-      this.selectedFirstJob,
-      this.targetLevel
-    );
+    this.chatStatsAtTargetLevel =
+      this.statOptimizationService.calculateStatsAtTargetLevel(
+        this.selectedFirstJob,
+        this.targetLevel
+      );
   }
 
   optimizeStats(): void {
@@ -89,7 +90,7 @@ export class StatCalculatorComponent {
 
     // Clear any previous optimization errors
     this.optimizationError = '';
-    
+
     // Update secondary stats filter using job recommendation service
     this.secondaryStats = this.jobRecommendationService.getSecondaryStatOptions(
       this.selectedOptimizeStat
