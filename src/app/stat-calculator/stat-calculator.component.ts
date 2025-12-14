@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
 import {
   BASE_LEVEL,
-  getJobWithBestRate,
-  getPrinciple,
-  getRequiredLevels,
-  MAX_LEVEL,
   validateLevel,
-  validateOptimizationFeasibility,
   VALIDATION_LIMITS,
 } from '../constants/functions';
-import { humes } from '../constants/hume_jobs';
 import { Job } from '../models/job';
 import { CharacterStats, defaultCharacterStats, Stat } from '../models/stats';
-import { calculateStats } from '../util/job_util';
+import { StatOptimizationService } from '../services/stat-optimization.service';
+import { JobRecommendationService } from '../services/job-recommendation.service';
 
 @Component({
   selector: 'app-stat-calculator',
@@ -22,8 +17,22 @@ import { calculateStats } from '../util/job_util';
 export class StatCalculatorComponent {
   charStats: CharacterStats = defaultCharacterStats;
 
-  jobs = humes;
-  baseStats = this.jobs.map((job) => calculateStats(job, 30));
+  jobs: Job[] = [];
+  baseStats: CharacterStats[] = [];
+
+  constructor(
+    private statOptimizationService: StatOptimizationService,
+    private jobRecommendationService: JobRecommendationService
+  ) {
+    this.initializeJobs();
+  }
+
+  private initializeJobs(): void {
+    this.jobs = this.jobRecommendationService.getJobsForRace('hume');
+    this.baseStats = this.jobs.map((job) => 
+      this.statOptimizationService.calculateStatsAtTargetLevel(job, 30)
+    );
+  }
   stats = Object.values(Stat);
 
   statsEnum = Stat;
@@ -51,7 +60,10 @@ export class StatCalculatorComponent {
     if (!this.selectedBaseJob) {
       return;
     }
-    this.charStats = calculateStats(this.selectedBaseJob, BASE_LEVEL);
+    this.charStats = this.statOptimizationService.setBaseStatsFromJob(
+      this.selectedBaseJob, 
+      BASE_LEVEL
+    );
   }
 
   calculateFinalStats(): void {
@@ -59,7 +71,7 @@ export class StatCalculatorComponent {
       return;
     }
 
-    this.chatStatsAtTargetLevel = calculateStats(
+    this.chatStatsAtTargetLevel = this.statOptimizationService.calculateStatsAtTargetLevel(
       this.selectedFirstJob,
       this.targetLevel
     );
@@ -77,50 +89,34 @@ export class StatCalculatorComponent {
 
     // Clear any previous optimization errors
     this.optimizationError = '';
-    this.secondaryStats = this.stats.filter(
-      (stat) => stat !== this.selectedOptimizeStat
+    
+    // Update secondary stats filter using job recommendation service
+    this.secondaryStats = this.jobRecommendationService.getSecondaryStatOptions(
+      this.selectedOptimizeStat
     );
-    const primaryJob = getJobWithBestRate(
+
+    // Get optimal job recommendations
+    const jobRecommendation = this.jobRecommendationService.getOptimalJobs(
       this.jobs,
-      this.selectedOptimizeStat!,
-      this.selectedSecondaryStat
-    );
-    const secondJob = getJobWithBestRate(
-      this.jobs.filter((job) => job.name !== primaryJob?.name),
+      this.selectedOptimizeStat,
       this.selectedSecondaryStat
     );
 
-    const principle = getPrinciple(
-      this.charStats.stats[this.selectedOptimizeStat],
-      this.selectedOptimizeStat === Stat.SPD
-    );
-    console.log('Principle:', principle);
-    const primaryLevels = getRequiredLevels(
-      principle,
-      primaryJob.rate[this.selectedOptimizeStat],
-      secondJob.rate[this.selectedOptimizeStat],
-      this.charStats.level,
-      this.selectedOptimizeStat === Stat.SPD
+    // Perform optimization calculation using the service
+    const optimizationResult = this.statOptimizationService.optimizeStats(
+      this.charStats,
+      this.selectedOptimizeStat,
+      this.selectedSecondaryStat,
+      jobRecommendation.primaryJob,
+      jobRecommendation.secondaryJob
     );
 
-    const secondaryLevels = MAX_LEVEL - this.charStats.level - primaryLevels;
+    console.log('Principle:', optimizationResult.principle);
     console.log(
-      `${primaryLevels} as ${primaryJob.name}, ${secondaryLevels} as ${secondJob.name}`
+      `${optimizationResult.primaryLevels} as ${optimizationResult.primaryJob.name}, ${optimizationResult.secondaryLevels} as ${optimizationResult.secondaryJob.name}`
     );
-    const firstStats = calculateStats(
-      primaryJob,
-      Math.round(primaryLevels),
-      this.charStats
-    );
-    const secondStats = calculateStats(
-      secondJob,
-      Math.round(secondaryLevels),
-      firstStats
-    );
-    this.levelGuide = {
-      firstStats,
-      secondStats,
-    };
+
+    this.levelGuide = optimizationResult.levelGuide;
   }
 
   validateAndUpdateLevel(level: number) {
@@ -163,7 +159,7 @@ export class StatCalculatorComponent {
     const currentValue = this.charStats.stats[this.selectedOptimizeStat];
     const targetValue = this.selectedOptimizeStat === Stat.SPD ? 149 : 999; // Assume max target
 
-    const validation = validateOptimizationFeasibility(
+    const validation = this.statOptimizationService.validateOptimization(
       this.charStats.level,
       this.selectedOptimizeStat,
       currentValue,
