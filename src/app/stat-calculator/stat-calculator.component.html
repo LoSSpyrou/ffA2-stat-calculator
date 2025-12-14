@@ -18,47 +18,81 @@
     <div>
       <stat-input
         label="HP"
+        [statType]="statsEnum.HP"
         [(statValue)]="charStats.stats[statsEnum.HP]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="MP"
+        [statType]="statsEnum.MP"
         [(statValue)]="charStats.stats[statsEnum.MP]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="W.ATK"
+        [statType]="statsEnum.WATK"
         [(statValue)]="charStats.stats[statsEnum.WATK]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="W.DEF"
+        [statType]="statsEnum.WDEF"
         [(statValue)]="charStats.stats[statsEnum.WDEF]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="M.ATK"
+        [statType]="statsEnum.MATK"
         [(statValue)]="charStats.stats[statsEnum.MATK]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="M.DEF"
+        [statType]="statsEnum.MDEF"
         [(statValue)]="charStats.stats[statsEnum.MDEF]"
       ></stat-input>
     </div>
     <div>
       <stat-input
         label="SPD"
+        [statType]="statsEnum.SPD"
         [(statValue)]="charStats.stats[statsEnum.SPD]"
       ></stat-input>
     </div>
     <div>
-      <stat-input label="Level" [(statValue)]="charStats.level"></stat-input>
+      <label
+        for="levelInput"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Level <span class="text-xs text-gray-500">(1-99)</span></label
+      >
+      <input
+        type="number"
+        id="levelInput"
+        [class]="
+          'block w-full p-2.5 text-sm rounded-lg border ' +
+          (isLevelValid
+            ? 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+            : 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400')
+        "
+        placeholder="1"
+        min="1"
+        max="99"
+        required
+        [(ngModel)]="charStats.level"
+        (ngModelChange)="validateAndUpdateLevel($event)"
+        (blur)="onLevelBlur()"
+      />
+      <div
+        *ngIf="!isLevelValid"
+        class="mt-2 text-sm text-red-600 dark:text-red-500"
+      >
+        <span class="font-medium">{{ levelValidationError }}</span>
+      </div>
     </div>
     <div>
       <label
@@ -81,14 +115,18 @@
       <label
         for="targetLevel"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Select a target Level</label
+        >Select a target Level
+        <span class="text-xs text-gray-500">(1-99)</span></label
       >
       <input
         type="number"
         id="targetLevel"
         name="targetLevel"
+        min="1"
+        max="99"
+        placeholder="99"
         [(ngModel)]="targetLevel"
-        (ngModelChange)="calculateFinalStats()"
+        (ngModelChange)="validateAndUpdateTargetLevel($event)"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
     </div>
@@ -134,6 +172,33 @@
     </div>
   </div>
 </form>
+
+<!-- Optimization Error Display -->
+<div
+  *ngIf="optimizationError"
+  class="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg dark:bg-red-900 dark:border-red-700"
+>
+  <div class="flex items-center">
+    <svg
+      class="w-4 h-4 text-red-600 dark:text-red-400 mr-2"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+    <span class="text-sm text-red-800 dark:text-red-400 font-medium"
+      >Optimization Error:</span
+    >
+  </div>
+  <p class="mt-1 text-sm text-red-700 dark:text-red-300">
+    {{ optimizationError }}
+  </p>
+</div>
+
 <div class="grid gap-6 mb-6 grid-cols-2">
   <ul class="list-none">
     <li>HP: {{ charStats.stats[statsEnum.HP] }}</li>

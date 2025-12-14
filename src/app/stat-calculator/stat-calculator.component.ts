@@ -5,6 +5,9 @@ import {
   getPrinciple,
   getRequiredLevels,
   MAX_LEVEL,
+  validateLevel,
+  validateOptimizationFeasibility,
+  VALIDATION_LIMITS,
 } from '../constants/functions';
 import { humes } from '../constants/hume_jobs';
 import { Job } from '../models/job';
@@ -39,6 +42,11 @@ export class StatCalculatorComponent {
 
   levelGuide?: { firstStats: CharacterStats; secondStats: CharacterStats };
 
+  // Validation state
+  isLevelValid: boolean = true;
+  levelValidationError: string = '';
+  optimizationError: string = '';
+
   setBaseStats(): void {
     if (!this.selectedBaseJob) {
       return;
@@ -61,6 +69,14 @@ export class StatCalculatorComponent {
     if (!this.selectedSecondaryStat || !this.selectedOptimizeStat) {
       return;
     }
+
+    // Validate optimization feasibility first
+    if (!this.validateOptimization()) {
+      return; // Error message is already set in validateOptimization
+    }
+
+    // Clear any previous optimization errors
+    this.optimizationError = '';
     this.secondaryStats = this.stats.filter(
       (stat) => stat !== this.selectedOptimizeStat
     );
@@ -105,6 +121,57 @@ export class StatCalculatorComponent {
       firstStats,
       secondStats,
     };
+  }
+
+  validateAndUpdateLevel(level: number) {
+    const validation = validateLevel(level);
+
+    this.isLevelValid = validation.isValid;
+    this.levelValidationError = validation.error || '';
+
+    if (!validation.isValid && validation.correctedValue !== undefined) {
+      this.charStats.level = validation.correctedValue;
+    }
+  }
+
+  validateAndUpdateTargetLevel(level: number): void {
+    if (level < VALIDATION_LIMITS.MIN_LEVEL) {
+      this.targetLevel = VALIDATION_LIMITS.MIN_LEVEL;
+    } else if (level > VALIDATION_LIMITS.MAX_LEVEL) {
+      this.targetLevel = VALIDATION_LIMITS.MAX_LEVEL;
+    } else {
+      this.targetLevel = level;
+    }
+    this.calculateFinalStats();
+  }
+
+  onLevelBlur(): void {
+    // Clamp level to valid range when user leaves input
+    const level = Math.max(
+      VALIDATION_LIMITS.MIN_LEVEL,
+      Math.min(VALIDATION_LIMITS.MAX_LEVEL, this.charStats.level)
+    );
+    if (level !== this.charStats.level) {
+      this.charStats.level = level;
+    }
+    this.validateAndUpdateLevel(this.charStats.level);
+  }
+
+  validateOptimization(): boolean {
+    if (!this.selectedOptimizeStat) return false;
+
+    const currentValue = this.charStats.stats[this.selectedOptimizeStat];
+    const targetValue = this.selectedOptimizeStat === Stat.SPD ? 149 : 999; // Assume max target
+
+    const validation = validateOptimizationFeasibility(
+      this.charStats.level,
+      this.selectedOptimizeStat,
+      currentValue,
+      targetValue
+    );
+
+    this.optimizationError = validation.error || '';
+    return validation.isValid;
   }
 
   debug() {

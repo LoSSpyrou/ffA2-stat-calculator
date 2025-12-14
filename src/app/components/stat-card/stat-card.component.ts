@@ -7,10 +7,11 @@ import {
 } from 'src/app/models/stats';
 
 @Component({
-    selector: 'stat-card',
-    templateUrl: './stat-card.component.html',
-    styleUrls: ['./stat-card.component.scss'],
-    imports: [CommonModule]
+  selector: 'stat-card',
+  templateUrl: './stat-card.component.html',
+  styleUrls: ['./stat-card.component.scss'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class StatCardComponent {
   @Input() stats: CharacterStats = defaultCharacterStats;
