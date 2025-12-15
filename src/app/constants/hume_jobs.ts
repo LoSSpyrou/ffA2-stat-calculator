@@ -102,6 +102,7 @@ export const hume_archer: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeArcherSprite.jpg',
   img: './assets/img/jobs/TA2-HumeArcher.png',
   name: 'Archer',
+  race: Race.HUME,
   base: {
     HP: 86,
     MP: 18,
@@ -125,6 +126,7 @@ export const hume_paladin: Job = {
   sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg',
   img: './assets/img/jobs/TA2-HumePaladin.png',
   name: 'Paladin',
+  race: Race.HUME,
   base: {
     HP: 88,
     MP: 22,
@@ -148,6 +150,7 @@ export const hume_fighter: Job = {
   sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg',
   img: './assets/img/jobs/TA2-HumeFighter.png',
   name: 'Fighter',
+  race: Race.HUME,
   base: {
     HP: 84,
     MP: 12,
@@ -171,6 +174,7 @@ export const hume_parivir: Job = {
   sprite: './assets/img/jobs/FFTA2-ParivirSprite.jpg',
   img: './assets/img/jobs/Ffta2-humesamurai.png',
   name: 'Parivir',
+  race: Race.HUME,
   base: {
     HP: 86,
     MP: 10,
@@ -194,6 +198,7 @@ export const hume_ninja: Job = {
   sprite: './assets/img/jobs/FFTA2-NinjaSprite.jpg',
   img: './assets/img/jobs/TA2-HumeNinja.png',
   name: 'Ninja',
+  race: Race.HUME,
   base: {
     HP: 79,
     MP: 21,
@@ -217,6 +222,7 @@ export const hume_illusionist: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeIllusionistSprite.jpg',
   img: './assets/img/jobs/TA2-HumeIllusionist.png',
   name: 'Illusionist',
+  race: Race.HUME,
   base: {
     HP: 76,
     MP: 38,
@@ -240,6 +246,7 @@ export const hume_blue_mage: Job = {
   sprite: './assets/img/jobs/FFTA2-BlueMageSprite.jpg',
   img: './assets/img/jobs/TA2-Hume_BlueMage.png',
   name: 'Blue Mage',
+  race: Race.HUME,
   base: {
     HP: 84,
     MP: 30,
@@ -263,6 +270,7 @@ export const hume_hunter: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeHunterSprite.jpg',
   img: './assets/img/jobs/TA2-HumeHunter.png',
   name: 'Hunter',
+  race: Race.HUME,
   base: {
     HP: 84,
     MP: 26,
@@ -286,6 +294,7 @@ export const hume_seer: Job = {
   sprite: './assets/img/jobs/FFTA2-SeerSprite.jpg',
   img: './assets/img/jobs/TA2_Hume-Devout.png',
   name: 'Seer',
+  race: Race.HUME,
   base: {
     HP: 83,
     MP: 42,
@@ -309,6 +318,7 @@ export const hume_sky_pirate: Job = {
   sprite: './assets/img/jobs/FFTA2-VaanSprite.jpg',
   img: './assets/img/jobs/FFTA2Vaan.png',
   name: 'Sky Pirate',
+  race: Race.HUME,
   base: {
     HP: 85,
     MP: 14,
@@ -332,6 +342,7 @@ export const hume_heritor: Job = {
   sprite: './assets/img/jobs/FFTA2-AdelSprite.jpg',
   img: './assets/img/jobs/Adel.png',
   name: 'Heritor',
+  race: Race.HUME,
   base: {
     HP: 84,
     MP: 36,
@@ -355,6 +366,7 @@ export const hume_agent: Job = {
   sprite: './assets/img/jobs/FFTA2-AlCidSprite.jpg',
   img: './assets/img/jobs/TA2_Al-Cid.png',
   name: 'Agent',
+  race: Race.HUME,
   base: {
     HP: 86,
     MP: 12,
