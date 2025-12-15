@@ -24,6 +24,9 @@ export class StatCalculatorComponent {
   // Race selection
   selectedRace: Race = Race.HUME;
   Race = Race; // Make Race enum available in template
+  
+  // Custom dropdown state
+  isJobDropdownOpen: boolean = false;
 
   constructor(
     private statOptimizationService: StatOptimizationService,
@@ -212,5 +215,21 @@ export class StatCalculatorComponent {
     
     // Reset character stats
     this.charStats = { ...defaultCharacterStats };
+  }
+
+  /**
+   * Toggle job dropdown visibility
+   */
+  toggleJobDropdown(): void {
+    this.isJobDropdownOpen = !this.isJobDropdownOpen;
+  }
+
+  /**
+   * Select a job from the custom dropdown
+   */
+  selectJob(job: Job): void {
+    this.selectedBaseJob = job;
+    this.isJobDropdownOpen = false;
+    this.setBaseStats(); // Call existing method to update stats
   }
 }

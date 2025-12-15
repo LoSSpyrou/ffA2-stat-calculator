@@ -1,5 +1,5 @@
-import { CharStatType } from './stats';
 import { Race } from './race';
+import { CharStatType } from './stats';
 
 export interface Job {
   name: string;
@@ -7,5 +7,5 @@ export interface Job {
   rate: CharStatType;
   img?: string;
   sprite: string;
-  race?: Race; // Optional for backward compatibility
+  race: Race;
 }

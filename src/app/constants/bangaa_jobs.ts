@@ -2,8 +2,8 @@ import { Job } from '../models/job';
 import { Race } from '../models/race';
 
 export const bangaa_warrior: Job = {
-  img: './assets/img/jobs/Ffta2-h-soldier.png', // Placeholder - TODO: Add Bangaa Warrior image
-  sprite: './assets/img/jobs/FFTA2-SoldierSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-warrior.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-WarriorSprite.png',
   name: 'Warrior',
   race: Race.BANGAA,
   base: {
@@ -27,8 +27,8 @@ export const bangaa_warrior: Job = {
 };
 
 export const bangaa_white_monk: Job = {
-  img: './assets/img/jobs/TA2-HumeFighter.png', // Placeholder - TODO: Add Bangaa White Monk image
-  sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-whitemonk.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-WhiteMonkSprite.png',
   name: 'White Monk',
   race: Race.BANGAA,
   base: {
@@ -52,8 +52,8 @@ export const bangaa_white_monk: Job = {
 };
 
 export const bangaa_dragoon: Job = {
-  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Dragoon image
-  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-dragoon.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-DragoonSprite.png',
   name: 'Dragoon',
   race: Race.BANGAA,
   base: {
@@ -77,8 +77,8 @@ export const bangaa_dragoon: Job = {
 };
 
 export const bangaa_defender: Job = {
-  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Defender image
-  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-defender.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-DefenderSprite.png',
   name: 'Defender',
   race: Race.BANGAA,
   base: {
@@ -102,8 +102,8 @@ export const bangaa_defender: Job = {
 };
 
 export const bangaa_gladiator: Job = {
-  img: './assets/img/jobs/TA2-HumeFighter.png', // Placeholder - TODO: Add Bangaa Gladiator image
-  sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-gladiator.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-GladiatorSprite.png',
   name: 'Gladiator',
   race: Race.BANGAA,
   base: {
@@ -127,8 +127,8 @@ export const bangaa_gladiator: Job = {
 };
 
 export const bangaa_master_monk: Job = {
-  img: './assets/img/jobs/TA2-HumeNinja.png', // Placeholder - TODO: Add Bangaa Master Monk image
-  sprite: './assets/img/jobs/FFTA2-NinjaSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta2-Bmastermonk.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-MasterMonkSprite.png',
   name: 'Master Monk',
   race: Race.BANGAA,
   base: {
@@ -152,8 +152,8 @@ export const bangaa_master_monk: Job = {
 };
 
 export const bangaa_bishop: Job = {
-  img: './assets/img/jobs/Ffta2-h-whitemage.png', // Placeholder - TODO: Add Bangaa Bishop image
-  sprite: './assets/img/jobs/FFTA2-HumeWhiteMageSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-bishop.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-BishopSprite.png',
   name: 'Bishop',
   race: Race.BANGAA,
   base: {
@@ -177,8 +177,8 @@ export const bangaa_bishop: Job = {
 };
 
 export const bangaa_templar: Job = {
-  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Templar image
-  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta-bangaa-templar.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-TemplarSprite.png',
   name: 'Templar',
   race: Race.BANGAA,
   base: {
@@ -202,8 +202,8 @@ export const bangaa_templar: Job = {
 };
 
 export const bangaa_cannoneer: Job = {
-  img: './assets/img/jobs/TA2-HumeArcher.png', // Placeholder - TODO: Add Bangaa Cannoneer image
-  sprite: './assets/img/jobs/FFTA2-HumeArcherSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/Ffta2-bangaacannoneer.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-CannoneerSprite.png',
   name: 'Cannoneer',
   race: Race.BANGAA,
   base: {
@@ -227,8 +227,8 @@ export const bangaa_cannoneer: Job = {
 };
 
 export const bangaa_trickster: Job = {
-  img: './assets/img/jobs/TA2-HumeIllusionist.png', // Placeholder - TODO: Add Bangaa Trickster image
-  sprite: './assets/img/jobs/FFTA2-HumeIllusionistSprite.jpg', // Placeholder
+  img: './assets/img/jobs/bangaa/BangaaTrickster.png',
+  sprite: './assets/img/jobs/bangaa/FFTA2-TricksterSprite.png',
   name: 'Trickster',
   race: Race.BANGAA,
   base: {

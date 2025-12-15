@@ -2,8 +2,8 @@ import { Job } from '../models/job';
 import { Race } from '../models/race';
 
 export const hume_soldier: Job = {
-  img: './assets/img/jobs/Ffta2-h-soldier.png',
-  sprite: './assets/img/jobs/FFTA2-SoldierSprite.jpg',
+  img: './assets/img/jobs/hume/Ffta2-h-soldier.png',
+  sprite: './assets/img/jobs/hume/FFTA2-SoldierSprite.jpg',
   name: 'Soldier',
   race: Race.HUME,
   base: {
@@ -27,8 +27,8 @@ export const hume_soldier: Job = {
 };
 
 export const hume_thief: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeThiefSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeThief.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeThiefSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeThief.png',
   name: 'Thief',
   race: Race.HUME,
   base: {
@@ -51,8 +51,8 @@ export const hume_thief: Job = {
   },
 };
 export const hume_white_mage: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeWhiteMageSprite.jpg',
-  img: './assets/img/jobs/Ffta2-h-whitemage.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeWhiteMageSprite.jpg',
+  img: './assets/img/jobs/hume/Ffta2-h-whitemage.png',
   name: 'White Mage',
   race: Race.HUME,
   base: {
@@ -75,8 +75,8 @@ export const hume_white_mage: Job = {
   },
 };
 export const hume_black_mage: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeBlackMageSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeBlackMage.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeBlackMageSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeBlackMage.png',
   name: 'Black Mage',
   race: Race.HUME,
   base: {
@@ -99,8 +99,8 @@ export const hume_black_mage: Job = {
   },
 };
 export const hume_archer: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeArcherSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeArcher.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeArcherSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeArcher.png',
   name: 'Archer',
   race: Race.HUME,
   base: {
@@ -123,8 +123,8 @@ export const hume_archer: Job = {
   },
 };
 export const hume_paladin: Job = {
-  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg',
-  img: './assets/img/jobs/TA2-HumePaladin.png',
+  sprite: './assets/img/jobs/hume/FFTA2-PaladinSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumePaladin.png',
   name: 'Paladin',
   race: Race.HUME,
   base: {
@@ -147,8 +147,8 @@ export const hume_paladin: Job = {
   },
 };
 export const hume_fighter: Job = {
-  sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeFighter.png',
+  sprite: './assets/img/jobs/hume/FFTA2-FighterSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeFighter.png',
   name: 'Fighter',
   race: Race.HUME,
   base: {
@@ -171,8 +171,8 @@ export const hume_fighter: Job = {
   },
 };
 export const hume_parivir: Job = {
-  sprite: './assets/img/jobs/FFTA2-ParivirSprite.jpg',
-  img: './assets/img/jobs/Ffta2-humesamurai.png',
+  sprite: './assets/img/jobs/hume/FFTA2-ParivirSprite.jpg',
+  img: './assets/img/jobs/hume/Ffta2-humesamurai.png',
   name: 'Parivir',
   race: Race.HUME,
   base: {
@@ -195,8 +195,8 @@ export const hume_parivir: Job = {
   },
 };
 export const hume_ninja: Job = {
-  sprite: './assets/img/jobs/FFTA2-NinjaSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeNinja.png',
+  sprite: './assets/img/jobs/hume/FFTA2-NinjaSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeNinja.png',
   name: 'Ninja',
   race: Race.HUME,
   base: {
@@ -219,8 +219,8 @@ export const hume_ninja: Job = {
   },
 };
 export const hume_illusionist: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeIllusionistSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeIllusionist.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeIllusionistSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeIllusionist.png',
   name: 'Illusionist',
   race: Race.HUME,
   base: {
@@ -243,8 +243,8 @@ export const hume_illusionist: Job = {
   },
 };
 export const hume_blue_mage: Job = {
-  sprite: './assets/img/jobs/FFTA2-BlueMageSprite.jpg',
-  img: './assets/img/jobs/TA2-Hume_BlueMage.png',
+  sprite: './assets/img/jobs/hume/FFTA2-BlueMageSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeBlueMage.png',
   name: 'Blue Mage',
   race: Race.HUME,
   base: {
@@ -267,8 +267,8 @@ export const hume_blue_mage: Job = {
   },
 };
 export const hume_hunter: Job = {
-  sprite: './assets/img/jobs/FFTA2-HumeHunterSprite.jpg',
-  img: './assets/img/jobs/TA2-HumeHunter.png',
+  sprite: './assets/img/jobs/hume/FFTA2-HumeHunterSprite.jpg',
+  img: './assets/img/jobs/hume/TA2-HumeHunter.png',
   name: 'Hunter',
   race: Race.HUME,
   base: {
@@ -291,8 +291,8 @@ export const hume_hunter: Job = {
   },
 };
 export const hume_seer: Job = {
-  sprite: './assets/img/jobs/FFTA2-SeerSprite.jpg',
-  img: './assets/img/jobs/TA2_Hume-Devout.png',
+  sprite: './assets/img/jobs/hume/FFTA2-SeerSprite.jpg',
+  img: './assets/img/jobs/hume/TA2_Hume-Devout.png',
   name: 'Seer',
   race: Race.HUME,
   base: {
@@ -315,8 +315,8 @@ export const hume_seer: Job = {
   },
 };
 export const hume_sky_pirate: Job = {
-  sprite: './assets/img/jobs/FFTA2-VaanSprite.jpg',
-  img: './assets/img/jobs/FFTA2Vaan.png',
+  sprite: './assets/img/jobs/hume/FFTA2-VaanSprite.jpg',
+  img: './assets/img/jobs/hume/FFTA2Vaan.png',
   name: 'Sky Pirate',
   race: Race.HUME,
   base: {
@@ -339,8 +339,8 @@ export const hume_sky_pirate: Job = {
   },
 };
 export const hume_heritor: Job = {
-  sprite: './assets/img/jobs/FFTA2-AdelSprite.jpg',
-  img: './assets/img/jobs/Adel.png',
+  sprite: './assets/img/jobs/hume/FFTA2-AdelSprite.jpg',
+  img: './assets/img/jobs/hume/Adel.png',
   name: 'Heritor',
   race: Race.HUME,
   base: {
@@ -363,8 +363,8 @@ export const hume_heritor: Job = {
   },
 };
 export const hume_agent: Job = {
-  sprite: './assets/img/jobs/FFTA2-AlCidSprite.jpg',
-  img: './assets/img/jobs/TA2_Al-Cid.png',
+  sprite: './assets/img/jobs/hume/FFTA2-AlCidSprite.jpg',
+  img: './assets/img/jobs/hume/TA2_Al-Cid.png',
   name: 'Agent',
   race: Race.HUME,
   base: {
