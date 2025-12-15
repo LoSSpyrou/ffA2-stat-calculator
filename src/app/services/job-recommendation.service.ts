@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { getJobWithBestRate } from '../constants/functions';
 import { humes } from '../constants/hume_jobs';
+import { bangaaJobs } from '../constants/bangaa_jobs';
 import { Job } from '../models/job';
 import { Stat } from '../models/stats';
+import { Race } from '../models/race';
 
 export interface JobRecommendation {
   primaryJob: Job;
@@ -46,11 +48,11 @@ export class JobRecommendationService {
   getJobsForRace(
     race: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq'
   ): Job[] {
-    // For now, only Hume jobs are implemented
-    // This will be expanded in future branches
     switch (race) {
       case 'hume':
         return humes;
+      case 'bangaa':
+        return bangaaJobs;
       default:
         throw new Error(`Jobs for race ${race} not yet implemented`);
     }

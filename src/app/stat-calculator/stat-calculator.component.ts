@@ -20,6 +20,9 @@ export class StatCalculatorComponent {
   jobs: Job[] = [];
   baseStats: CharacterStats[] = [];
 
+  // Race selection
+  selectedRace: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq' | undefined = 'hume';
+
   constructor(
     private statOptimizationService: StatOptimizationService,
     private jobRecommendationService: JobRecommendationService
@@ -28,10 +31,12 @@ export class StatCalculatorComponent {
   }
 
   private initializeJobs(): void {
-    this.jobs = this.jobRecommendationService.getJobsForRace('hume');
-    this.baseStats = this.jobs.map((job) =>
-      this.statOptimizationService.calculateStatsAtTargetLevel(job, 30)
-    );
+    if (this.selectedRace) {
+      this.jobs = this.jobRecommendationService.getJobsForRace(this.selectedRace);
+      this.baseStats = this.jobs.map((job) =>
+        this.statOptimizationService.calculateStatsAtTargetLevel(job, 30)
+      );
+    }
   }
   stats = Object.values(Stat);
 
@@ -190,5 +195,20 @@ export class StatCalculatorComponent {
 
   debug() {
     console.log(this.selectedOptimizeStat);
+  }
+
+  /**
+   * Handle race selection change
+   */
+  onRaceChange(): void {
+    // Reset job selection when race changes
+    this.selectedBaseJob = undefined;
+    this.selectedFirstJob = undefined;
+    
+    // Initialize jobs for the selected race
+    this.initializeJobs();
+    
+    // Reset character stats
+    this.charStats = { ...defaultCharacterStats };
   }
 }

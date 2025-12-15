@@ -1,9 +1,11 @@
 import { Job } from '../models/job';
+import { Race } from '../models/race';
 
 export const hume_soldier: Job = {
   img: './assets/img/jobs/Ffta2-h-soldier.png',
   sprite: './assets/img/jobs/FFTA2-SoldierSprite.jpg',
   name: 'Soldier',
+  race: Race.HUME,
   base: {
     HP: 90,
     MP: 15,
@@ -28,6 +30,7 @@ export const hume_thief: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeThiefSprite.jpg',
   img: './assets/img/jobs/TA2-HumeThief.png',
   name: 'Thief',
+  race: Race.HUME,
   base: {
     HP: 83,
     MP: 15,
@@ -51,6 +54,7 @@ export const hume_white_mage: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeWhiteMageSprite.jpg',
   img: './assets/img/jobs/Ffta2-h-whitemage.png',
   name: 'White Mage',
+  race: Race.HUME,
   base: {
     HP: 84,
     MP: 36,
@@ -74,6 +78,7 @@ export const hume_black_mage: Job = {
   sprite: './assets/img/jobs/FFTA2-HumeBlackMageSprite.jpg',
   img: './assets/img/jobs/TA2-HumeBlackMage.png',
   name: 'Black Mage',
+  race: Race.HUME,
   base: {
     HP: 79,
     MP: 38,
