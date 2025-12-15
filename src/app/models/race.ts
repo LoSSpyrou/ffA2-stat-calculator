@@ -1,9 +1,9 @@
 export enum Race {
-  HUME = 'Hume',
-  BANGAA = 'Bangaa',
-  VIERA = 'Viera',
-  NU_MOU = 'Nu Mou',
-  SEEQ = 'Seeq',
+  HUME = 'hume',
+  BANGAA = 'bangaa', 
+  VIERA = 'viera',
+  NU_MOU = 'nu_mou',
+  SEEQ = 'seeq',
 }
 
 export interface RaceJobMapping {

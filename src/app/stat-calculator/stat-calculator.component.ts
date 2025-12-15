@@ -5,6 +5,7 @@ import {
   VALIDATION_LIMITS,
 } from '../constants/functions';
 import { Job } from '../models/job';
+import { Race } from '../models/race';
 import { CharacterStats, defaultCharacterStats, Stat } from '../models/stats';
 import { JobRecommendationService } from '../services/job-recommendation.service';
 import { StatOptimizationService } from '../services/stat-optimization.service';
@@ -21,7 +22,8 @@ export class StatCalculatorComponent {
   baseStats: CharacterStats[] = [];
 
   // Race selection
-  selectedRace: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq' | undefined = 'hume';
+  selectedRace: Race = Race.HUME;
+  Race = Race; // Make Race enum available in template
 
   constructor(
     private statOptimizationService: StatOptimizationService,

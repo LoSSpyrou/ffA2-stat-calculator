@@ -45,13 +45,11 @@ export class JobRecommendationService {
   /**
    * Gets all available jobs for a specific race
    */
-  getJobsForRace(
-    race: 'hume' | 'bangaa' | 'nu_mou' | 'moogle' | 'viera' | 'gria' | 'seeq'
-  ): Job[] {
+  getJobsForRace(race: Race): Job[] {
     switch (race) {
-      case 'hume':
+      case Race.HUME:
         return humes;
-      case 'bangaa':
+      case Race.BANGAA:
         return bangaaJobs;
       default:
         throw new Error(`Jobs for race ${race} not yet implemented`);
