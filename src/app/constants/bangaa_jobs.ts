@@ -2,8 +2,8 @@ import { Job } from '../models/job';
 import { Race } from '../models/race';
 
 export const bangaa_warrior: Job = {
-  img: './assets/img/jobs/Ffta2-b-warrior.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaWarriorSprite.jpg',
+  img: './assets/img/jobs/Ffta2-h-soldier.png', // Placeholder - TODO: Add Bangaa Warrior image
+  sprite: './assets/img/jobs/FFTA2-SoldierSprite.jpg', // Placeholder
   name: 'Warrior',
   race: Race.BANGAA,
   base: {
@@ -27,8 +27,8 @@ export const bangaa_warrior: Job = {
 };
 
 export const bangaa_white_monk: Job = {
-  img: './assets/img/jobs/Ffta2-b-white-monk.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaWhiteMonkSprite.jpg',
+  img: './assets/img/jobs/TA2-HumeFighter.png', // Placeholder - TODO: Add Bangaa White Monk image
+  sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg', // Placeholder
   name: 'White Monk',
   race: Race.BANGAA,
   base: {
@@ -52,8 +52,8 @@ export const bangaa_white_monk: Job = {
 };
 
 export const bangaa_dragoon: Job = {
-  img: './assets/img/jobs/Ffta2-b-dragoon.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaDragoonSprite.jpg',
+  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Dragoon image
+  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
   name: 'Dragoon',
   race: Race.BANGAA,
   base: {
@@ -77,8 +77,8 @@ export const bangaa_dragoon: Job = {
 };
 
 export const bangaa_defender: Job = {
-  img: './assets/img/jobs/Ffta2-b-defender.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaDefenderSprite.jpg',
+  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Defender image
+  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
   name: 'Defender',
   race: Race.BANGAA,
   base: {
@@ -102,8 +102,8 @@ export const bangaa_defender: Job = {
 };
 
 export const bangaa_gladiator: Job = {
-  img: './assets/img/jobs/Ffta2-b-gladiator.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaGladiatorSprite.jpg',
+  img: './assets/img/jobs/TA2-HumeFighter.png', // Placeholder - TODO: Add Bangaa Gladiator image
+  sprite: './assets/img/jobs/FFTA2-FighterSprite.jpg', // Placeholder
   name: 'Gladiator',
   race: Race.BANGAA,
   base: {
@@ -127,8 +127,8 @@ export const bangaa_gladiator: Job = {
 };
 
 export const bangaa_master_monk: Job = {
-  img: './assets/img/jobs/Ffta2-b-master-monk.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaMasterMonkSprite.jpg',
+  img: './assets/img/jobs/TA2-HumeNinja.png', // Placeholder - TODO: Add Bangaa Master Monk image
+  sprite: './assets/img/jobs/FFTA2-NinjaSprite.jpg', // Placeholder
   name: 'Master Monk',
   race: Race.BANGAA,
   base: {
@@ -152,8 +152,8 @@ export const bangaa_master_monk: Job = {
 };
 
 export const bangaa_bishop: Job = {
-  img: './assets/img/jobs/Ffta2-b-bishop.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaBishopSprite.jpg',
+  img: './assets/img/jobs/Ffta2-h-whitemage.png', // Placeholder - TODO: Add Bangaa Bishop image
+  sprite: './assets/img/jobs/FFTA2-HumeWhiteMageSprite.jpg', // Placeholder
   name: 'Bishop',
   race: Race.BANGAA,
   base: {
@@ -177,8 +177,8 @@ export const bangaa_bishop: Job = {
 };
 
 export const bangaa_templar: Job = {
-  img: './assets/img/jobs/Ffta2-b-templar.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaTemplarSprite.jpg',
+  img: './assets/img/jobs/TA2-HumePaladin.png', // Placeholder - TODO: Add Bangaa Templar image
+  sprite: './assets/img/jobs/FFTA2-PaladinSprite.jpg', // Placeholder
   name: 'Templar',
   race: Race.BANGAA,
   base: {
@@ -202,8 +202,8 @@ export const bangaa_templar: Job = {
 };
 
 export const bangaa_cannoneer: Job = {
-  img: './assets/img/jobs/Ffta2-b-cannoneer.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaCannoneerSprite.jpg',
+  img: './assets/img/jobs/TA2-HumeArcher.png', // Placeholder - TODO: Add Bangaa Cannoneer image
+  sprite: './assets/img/jobs/FFTA2-HumeArcherSprite.jpg', // Placeholder
   name: 'Cannoneer',
   race: Race.BANGAA,
   base: {
@@ -227,8 +227,8 @@ export const bangaa_cannoneer: Job = {
 };
 
 export const bangaa_trickster: Job = {
-  img: './assets/img/jobs/Ffta2-b-trickster.png',
-  sprite: './assets/img/jobs/FFTA2-BangaaTricksterSprite.jpg',
+  img: './assets/img/jobs/TA2-HumeIllusionist.png', // Placeholder - TODO: Add Bangaa Trickster image
+  sprite: './assets/img/jobs/FFTA2-HumeIllusionistSprite.jpg', // Placeholder
   name: 'Trickster',
   race: Race.BANGAA,
   base: {
