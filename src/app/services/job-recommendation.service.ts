@@ -1,19 +1,30 @@
 import { Injectable } from '@angular/core';
 import { bangaaJobs } from '../constants/bangaa_jobs';
 import { getJobWithBestRate } from '../constants/functions';
+import { griaJobs } from '../constants/gria_jobs';
 import { humes } from '../constants/hume_jobs';
 import { moogleJobs } from '../constants/moogle_jobs';
 import { nu_mouJobs } from '../constants/nu_mou_jobs';
 import { seeqJobs } from '../constants/seeq_jobs';
 import { vieraJobs } from '../constants/viera_jobs';
 import { Job } from '../models/job';
-import { Race } from '../models/race';
+import { Race, RaceJobMapping } from '../models/race';
 import { Stat } from '../models/stats';
 
 export interface JobRecommendation {
   primaryJob: Job;
   secondaryJob: Job;
 }
+
+const RACE_JOB_MAPPINGS: RaceJobMapping[] = [
+  { race: Race.HUME, jobs: humes },
+  { race: Race.BANGAA, jobs: bangaaJobs },
+  { race: Race.VIERA, jobs: vieraJobs },
+  { race: Race.NU_MOU, jobs: nu_mouJobs },
+  { race: Race.MOOGLE, jobs: moogleJobs },
+  { race: Race.GRIA, jobs: griaJobs },
+  { race: Race.SEEQ, jobs: seeqJobs },
+];
 
 @Injectable({
   providedIn: 'root',
@@ -50,22 +61,18 @@ export class JobRecommendationService {
    * Gets all available jobs for a specific race
    */
   getJobsForRace(race: Race): Job[] {
-    switch (race) {
-      case Race.HUME:
-        return humes;
-      case Race.BANGAA:
-        return bangaaJobs;
-      case Race.NU_MOU:
-        return nu_mouJobs;
-      case Race.MOOGLE:
-        return moogleJobs;
-      case Race.VIERA:
-        return vieraJobs;
-      case Race.SEEQ:
-        return seeqJobs;
-      default:
-        throw new Error(`Jobs for race ${race} not yet implemented`);
+    const mapping = RACE_JOB_MAPPINGS.find((m) => m.race === race);
+    if (!mapping) {
+      throw new Error(`Jobs for race ${race} not yet implemented`);
     }
+    return mapping.jobs;
+  }
+
+  /**
+   * Gets all race-job mappings
+   */
+  getAllRaceJobMappings(): RaceJobMapping[] {
+    return RACE_JOB_MAPPINGS;
   }
 
   /**
