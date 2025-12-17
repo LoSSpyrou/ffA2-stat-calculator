@@ -13,15 +13,25 @@ Each job has **Base** and **Growth** values for 7 stats:
 
 ### Growth Mechanics
 
-- **Normal Stats (HP, MP, WATK, WDEF, MATK, MDEF)**: Growth ± Variance
+**Formula**: `((growth*4)+9)/10` rounded down determines stat increase per level.
+
+**Growth Ranges:**
+
+- **Passive Stats** (Atk, Def, Mgk, Res): 1.50 to 3.00 in 0.25 increments
+- **HP**: 5 to 9 in whole integers
+- **MP**: 1 to 8 in whole integers
+- **Speed**: Percentage chance for +0.25 points per level
+
+**Variance**:
+
+- **1/3 chance each**: Lower (Growth - Variance), Normal (Growth), Higher (Growth + Variance)
 - **Variance**: `[(Growth + 9) / 10]` rounded down
   - Growth 1-10: Variance = 1
   - Growth 11-20: Variance = 2
-- **1/3 chance each**: Lower (Growth - Variance), Normal (Growth), Higher (Growth + Variance)
 
 ### Speed (SPD) Special Rules
 
-- **SPD Growth**: Percentage chance to gain +1 SPD per level
+- **SPD Growth**: Percentage chance to gain +0.25 SPD per level
 - **Maximum SPD**: 149 (all other stats max at 999)
 
 ### Displayed vs Actual Values
@@ -29,6 +39,13 @@ Each job has **Base** and **Growth** values for 7 stats:
 - **HP/MP**: Shown values are actual
 - **WATK/WDEF/MATK/MDEF**: Displayed = Actual ÷ 4 (rounded down)
 - **Max displayed**: 249 for combat stats
+
+### Job Rating System
+
+**Rankings (A-E for HP, A-H for MP, A-G for others):**
+
+- **A-Ranked Jobs**: Berserker, Gladiator, Dragoon, Master Monk, Parivir, Ranger, Sniper (Atk)
+- **Special Case**: Trickster has 1.86 Res growth (only "E+" rating)
 
 ---
 
