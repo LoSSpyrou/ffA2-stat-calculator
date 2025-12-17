@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { getJobWithBestRate } from '../constants/functions';
 import { humes } from '../constants/hume_jobs';
 import { bangaaJobs } from '../constants/bangaa_jobs';
+import { nu_mouJobs } from '../constants/nu_mou_jobs';
 import { Job } from '../models/job';
 import { Stat } from '../models/stats';
 import { Race } from '../models/race';
@@ -51,6 +52,8 @@ export class JobRecommendationService {
         return humes;
       case Race.BANGAA:
         return bangaaJobs;
+      case Race.NU_MOU:
+        return nu_mouJobs;
       default:
         throw new Error(`Jobs for race ${race} not yet implemented`);
     }

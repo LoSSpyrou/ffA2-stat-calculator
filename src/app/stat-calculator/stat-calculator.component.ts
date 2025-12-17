@@ -27,6 +27,7 @@ export class StatCalculatorComponent {
   
   // Custom dropdown state
   isJobDropdownOpen: boolean = false;
+  isTargetJobDropdownOpen: boolean = false;
 
   constructor(
     private statOptimizationService: StatOptimizationService,
@@ -231,5 +232,21 @@ export class StatCalculatorComponent {
     this.selectedBaseJob = job;
     this.isJobDropdownOpen = false;
     this.setBaseStats(); // Call existing method to update stats
+  }
+
+  /**
+   * Toggle target job dropdown visibility
+   */
+  toggleTargetJobDropdown(): void {
+    this.isTargetJobDropdownOpen = !this.isTargetJobDropdownOpen;
+  }
+
+  /**
+   * Select a target job from the custom dropdown
+   */
+  selectTargetJob(job: Job): void {
+    this.selectedFirstJob = job;
+    this.isTargetJobDropdownOpen = false;
+    this.calculateFinalStats(); // Call existing method to update calculations
   }
 }
