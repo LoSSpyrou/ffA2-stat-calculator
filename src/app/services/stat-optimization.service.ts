@@ -54,7 +54,7 @@ export class StatOptimizationService {
     );
 
     // Calculate required levels for optimal progression
-    const primaryLevels = getRequiredLevels(
+    let primaryLevels = getRequiredLevels(
       principle,
       primaryJob.rate[primaryStat],
       secondaryJob.rate[primaryStat],
@@ -62,7 +62,30 @@ export class StatOptimizationService {
       primaryStat === Stat.SPD
     );
 
-    const secondaryLevels = MAX_LEVEL - currentStats.level - primaryLevels;
+    // Validate and clamp primary levels to valid range
+    if (!isFinite(primaryLevels) || primaryLevels < 0) {
+      primaryLevels = 0;
+    }
+
+    const remainingLevels = MAX_LEVEL - currentStats.level;
+    if (primaryLevels > remainingLevels) {
+      primaryLevels = remainingLevels;
+    }
+
+    // Round to whole levels since you can't gain fractional levels
+    primaryLevels = Math.round(
+      Math.max(0, Math.min(remainingLevels, primaryLevels))
+    );
+
+    let secondaryLevels = remainingLevels - primaryLevels;
+
+    // Ensure secondary levels are also valid whole numbers
+    if (!isFinite(secondaryLevels) || secondaryLevels < 0) {
+      secondaryLevels = 0;
+      primaryLevels = remainingLevels;
+    }
+
+    secondaryLevels = Math.round(Math.max(0, secondaryLevels));
 
     // Calculate final stats after progression
     const firstStats = calculateStats(

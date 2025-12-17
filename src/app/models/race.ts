@@ -1,8 +1,9 @@
 export enum Race {
   HUME = 'hume',
-  BANGAA = 'bangaa', 
+  BANGAA = 'bangaa',
   VIERA = 'viera',
   NU_MOU = 'nu_mou',
+  MOOGLE = 'moogle',
   SEEQ = 'seeq',
 }
 

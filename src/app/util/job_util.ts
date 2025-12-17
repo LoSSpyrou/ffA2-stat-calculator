@@ -7,17 +7,21 @@ export function calculateStats(
   stats?: CharacterStats
 ): CharacterStats {
   const baseStats: CharStatType = stats?.stats ?? job.base;
+
+  // Validate inputs to prevent NaN/Infinity
+  const validLevel = Math.max(0, Math.min(99, isFinite(level) ? level : 0));
+
   return {
     job,
-    level: stats ? level + stats.level : level,
+    level: stats ? Math.min(99, validLevel + stats.level) : validLevel,
     stats: {
-      HP: baseStats.HP + level * job.rate.HP,
-      MP: baseStats.MP + level * job.rate.MP,
-      WATK: baseStats.WATK + level * job.rate.WATK,
-      WDEF: baseStats.WDEF + level * job.rate.WDEF,
-      MATK: baseStats.MATK + level * job.rate.MATK,
-      MDEF: baseStats.MDEF + level * job.rate.MDEF,
-      SPD: calculateSpeedGrowth(baseStats.SPD, job.rate.SPD, level),
+      HP: Math.max(1, baseStats.HP + validLevel * job.rate.HP),
+      MP: Math.max(0, baseStats.MP + validLevel * job.rate.MP),
+      WATK: Math.max(1, baseStats.WATK + validLevel * job.rate.WATK),
+      WDEF: Math.max(1, baseStats.WDEF + validLevel * job.rate.WDEF),
+      MATK: Math.max(0, baseStats.MATK + validLevel * job.rate.MATK),
+      MDEF: Math.max(1, baseStats.MDEF + validLevel * job.rate.MDEF),
+      SPD: calculateSpeedGrowth(baseStats.SPD, job.rate.SPD, validLevel),
     },
   };
 }
@@ -35,11 +39,19 @@ export function calculateSpeedGrowth(
   speedRate: number,
   levels: number
 ): number {
+  // Validate inputs to prevent NaN/Infinity
+  if (!isFinite(baseSPD) || !isFinite(speedRate) || !isFinite(levels)) {
+    return Math.max(1, baseSPD || 1); // Return base SPD or 1 if invalid
+  }
+
   // Convert percentage to decimal (50 -> 0.5)
-  const chancePerLevel = speedRate / 100;
+  const chancePerLevel = Math.max(0, Math.min(1, speedRate / 100));
   // Average expected SPD gain = levels * chance
-  const expectedGain = levels * chancePerLevel;
-  return Math.round(baseSPD + expectedGain);
+  const expectedGain = Math.max(0, levels) * chancePerLevel;
+  const finalSPD = baseSPD + expectedGain;
+
+  // Ensure result is within valid SPD range (1-149)
+  return Math.max(1, Math.min(149, Math.round(finalSPD)));
 }
 
 /**
