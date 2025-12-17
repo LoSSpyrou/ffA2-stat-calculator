@@ -5,6 +5,7 @@ import { humes } from '../constants/hume_jobs';
 import { moogleJobs } from '../constants/moogle_jobs';
 import { nu_mouJobs } from '../constants/nu_mou_jobs';
 import { seeqJobs } from '../constants/seeq_jobs';
+import { vieraJobs } from '../constants/viera_jobs';
 import { Job } from '../models/job';
 import { Race } from '../models/race';
 import { Stat } from '../models/stats';
@@ -58,6 +59,8 @@ export class JobRecommendationService {
         return nu_mouJobs;
       case Race.MOOGLE:
         return moogleJobs;
+      case Race.VIERA:
+        return vieraJobs;
       case Race.SEEQ:
         return seeqJobs;
       default:
