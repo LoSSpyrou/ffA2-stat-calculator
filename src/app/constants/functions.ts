@@ -67,7 +67,18 @@ export function getRequiredLevels(
     const chance1 = rate1 / 100;
     const chance2 = rate2 / 100;
     const remainingLevels = MAX_LEVEL - level;
+
+    // Handle case where both jobs have the same SPD rate
+    if (Math.abs(chance1 - chance2) < 0.001) {
+      return remainingLevels / 2; // Split levels evenly if rates are identical
+    }
+
     return (principle - remainingLevels * chance2) / (chance1 - chance2);
+  }
+
+  // Handle case where both jobs have the same stat rate
+  if (rate1 === rate2) {
+    return (MAX_LEVEL - level) / 2; // Split levels evenly if rates are identical
   }
 
   const requiredLevels =

@@ -50,6 +50,7 @@
               <option [ngValue]="Race.HUME">Hume</option>
               <option [ngValue]="Race.BANGAA">Bangaa</option>
               <option [ngValue]="Race.NU_MOU">Nu Mou</option>
+              <option [ngValue]="Race.MOOGLE">Moogle</option>
               <option [ngValue]="Race.VIERA" disabled>
                 Viera (Coming Soon)
               </option>
@@ -300,37 +301,43 @@
                     class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 p-3 pr-10 text-left flex items-center gap-3 transition-all duration-200 hover:border-cyan-400"
                     (click)="toggleTargetJobDropdown()"
                   >
-                    <img 
-                      *ngIf="selectedFirstJob?.sprite" 
-                      [src]="selectedFirstJob?.sprite" 
+                    <img
+                      *ngIf="selectedFirstJob?.sprite"
+                      [src]="selectedFirstJob?.sprite"
                       [alt]="selectedFirstJob?.name"
                       class="w-8 h-8 object-contain rounded bg-gray-100 dark:bg-gray-700 p-1"
                     />
                     <span class="flex-1">
                       {{ selectedFirstJob?.name || 'Choose a Job' }}
                     </span>
-                    <svg class="w-4 h-4 fill-current transform transition-transform" 
-                         [class.rotate-180]="isTargetJobDropdownOpen">
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                    <svg
+                      class="w-4 h-4 fill-current transform transition-transform"
+                      [class.rotate-180]="isTargetJobDropdownOpen"
+                    >
+                      <path
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      />
                     </svg>
                   </button>
-                  
+
                   <!-- Dropdown options -->
-                  <div 
+                  <div
                     *ngIf="isTargetJobDropdownOpen"
                     class="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto"
                   >
-                    <div 
-                      *ngFor="let job of jobs" 
+                    <div
+                      *ngFor="let job of jobs"
                       class="flex items-center gap-3 p-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0"
                       (click)="selectTargetJob(job)"
                     >
-                      <img 
-                        [src]="job.sprite" 
+                      <img
+                        [src]="job.sprite"
                         [alt]="job.name"
                         class="w-8 h-8 object-contain rounded bg-gray-100 dark:bg-gray-700 p-1"
                       />
-                      <span class="text-gray-900 dark:text-white">{{ job.name }}</span>
+                      <span class="text-gray-900 dark:text-white">{{
+                        job.name
+                      }}</span>
                     </div>
                   </div>
                 </div>
