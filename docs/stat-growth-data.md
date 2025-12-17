@@ -8,7 +8,7 @@ _Source: [GameFAQs Stat Growth Chart by Synangel](https://gamefaqs.gamespot.com/
 
 Each job has **Base** and **Growth** values for 7 stats:
 
-- **Base**: Starting stat at Level 1 (no variance)  
+- **Base**: Starting stat at Level 1 (no variance)
 - **Growth**: Amount increased per level (with variance)
 
 ### Growth Mechanics
@@ -16,12 +16,14 @@ Each job has **Base** and **Growth** values for 7 stats:
 **Formula**: `((growth*4)+9)/10` rounded down determines stat increase per level.
 
 **Growth Ranges:**
+
 - **Passive Stats** (Atk, Def, Mgk, Res): 1.50 to 3.00 in 0.25 increments
 - **HP**: 5 to 9 in whole integers
 - **MP**: 1 to 8 in whole integers
 - **Speed**: Percentage chance for +0.25 points per level
 
-**Variance**: 
+**Variance**:
+
 - **1/3 chance each**: Lower (Growth - Variance), Normal (Growth), Higher (Growth + Variance)
 - **Variance**: `[(Growth + 9) / 10]` rounded down
   - Growth 1-10: Variance = 1
@@ -41,6 +43,7 @@ Each job has **Base** and **Growth** values for 7 stats:
 ### Job Rating System
 
 **Rankings (A-E for HP, A-H for MP, A-G for others):**
+
 - **A-Ranked Jobs**: Berserker, Gladiator, Dragoon, Master Monk, Parivir, Ranger, Sniper (Atk)
 - **Special Case**: Trickster has 1.86 Res growth (only "E+" rating)
 
