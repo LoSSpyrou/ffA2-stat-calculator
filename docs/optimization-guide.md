@@ -102,6 +102,7 @@ _Equipment included for convenience - characters recruit with basic gear_
 **Watk/Spd**: 76 Ninja + 14 Parivir (Final SPD: 138)
 **Watk/Wdef**: 50 Paladin + 40 Parivir (Final WDEF: 928/232)
 **Watk/Matk**: 30 Black Mage + 60 Parivir (Magick Frenzy build)
+**Watk**: 50 levels Hunter + 40 levels Parivir (Final SPD: 118)
 
 #### Adelle (Story Character)
 
@@ -109,7 +110,72 @@ _Equipment included for convenience - characters recruit with basic gear_
 - **Base stats**: 131 HP, 23 MP, 66 SPD, 132 WATK, 130 WDEF, 132 MATK, 112 MDEF
 
 **Watk/Spd**: 57 Parivir + 33 Ninja (Final SPD: 131)
-**Watk/Wdef**: 49 Parivir + 41 Paladin (Tanking build)
+**Watk/Wdef**: 49 Parivir + 41 Paladin (Final WDEF: 883/220)
+**Watk/Matk**: 24 levels Black Mage + 66 levels Parivir (Final MATK: 768/192)
+**Watk**: 49 levels Parivir + 41 levels Heritor (Final SPD: 122)
+
+#### Frimelda (Story Character)
+
+- **Starting**: Paladin ~Level 45 (54 levels remaining)
+- **Base stats**: 396 HP, 110 MP, 77 SPD, 108 WATK, 133 WDEF, 95 MATK, 121 MDEF
+
+**Watk/Wdef/Spd**: 9 levels Paladin + 45 levels Parivir (Final WDEF: 937/234)
+**Watk/Matk/Spd**: Mix between Ninja and Black Mage or go Blue Mage
+**Wdef/Mdef**: 9 levels Black Mage + 10 levels Seer + 35 levels Paladin
+
+#### Vaan (Story Character)
+
+- **Starting**: Sky Pirate ~Level 45 (54 levels remaining)
+- **Base stats**: 349 HP, 102 MP, 88 SPD, 96 WATK, 95 WDEF, 96 MATK, 94 MDEF
+
+**Watk/Spd**: 54 levels Parivir
+**Spd/Watk**: 54 levels Ninja (Final SPD: 138)
+**Life of Crime**: 54 levels Sky Pirate with Thief abilities
+
+#### Al-Cid (Story Character)
+
+- **Starting**: Agent ~Level 45 (54 levels remaining)
+- **Base stats**: 422 HP, 108 MP, 83 SPD, 108 WATK, 108 WDEF, 81 MATK, 96 MDEF
+
+**Watk/Wdef**: 9 levels Paladin + 45 levels Parivir (Final WDEF: 834/208)
+**Spd/Watk**: 54 levels Ninja
+
+#### Cid (Bangaa Story Character)
+
+- **Starting**: Warrior ~Level 29 (70 levels remaining)
+- **Base stats**: 348 HP, 66 MP, 71 SPD, 339 WATK, 312 WDEF, 226 MATK, 234 MDEF
+
+**Watk/Spd**: 27 levels Trickster + 43 levels Master Monk (Final SPD: 125)
+**Watk/Wdef**: 45 levels Defender + 25 levels Gladiator (Final SPD: 105)
+**Matk/Spd**: 70 levels Trickster (Final MATK/SPD: 926/231; 133)
+
+#### Hurdy (Moogle Story Character)
+
+- **Starting**: Bard ~Level 29 (70 levels remaining)
+- **Base stats**: 242 HP, 172 MP, 69 SPD, 238 WATK, 226 WDEF, 341 MATK, 301 MDEF
+
+**Matk/Mdef**: 49 levels Time Mage + 21 levels Tinker (Final SPD: 103)
+**Matk/Spd**: 56 levels Time Mage + 14 levels Juggler (Final SPD: 107)
+**Mdef/Wdef**: 36 levels Moogle Knight + 34 levels Tinker (Final WDEF: 928/232)
+**Watk/Spd**: 70 levels Juggler (Final WATK/SPD: 868/217; 121)
+
+#### Montblanc (Moogle Story Character)
+
+- **Starting**: Black Mage ~Level 45 (54 levels remaining)
+- **Base stats**: 297 HP, 298 MP, 76 SPD, 81 WATK, 83 WDEF, 132 MATK, 134 MDEF
+
+**Matk/Mdef/Spd**: 18 levels Chocobo Rider + 36 levels Black Mage (Final SPD: 111)
+**Matk/Mdef/Wdef**: 18 levels Moogle Knight + 36 levels Black Mage (Final WDEF: 186)
+**Watk/Spd**: 54 levels Juggler or Moogle Knight
+
+#### Penelo (Viera Story Character)
+
+- **Starting**: Dancer ~Level 45 (54 levels remaining)
+- **Base stats**: 348 HP, 312 MP, 84 SPD, 82 WATK, 81 WDEF, 109 MATK, 108 MDEF
+
+**Matk/Mdef/Spd**: 11 levels Dancer + 43 levels Summoner (Final SPD: 115)
+**Watk/Matk**: 54 levels Red Mage (balanced sword and magic)
+**Watk/Spd**: 54 levels Fencer
 
 ---
 
@@ -177,6 +243,14 @@ _Equipment included for convenience - characters recruit with basic gear_
 - **Final SPD**: 112
 - **Best for**: Mid/rear-line magic users (Black Mage, Illusionist)
 
+### Matk/Wdef Build
+
+- **Recruit as**: Sage
+- **Target**: 723 WDEF, 649 MATK
+- **Distribution**: 55 levels Sage + 14 levels Black Mage
+- **Final WDEF**: 745/186
+- **Best for**: Front-line magic users (Sage)
+
 ### Physical Nu Mou (Rare)
 
 - **Strategy**: 100% Beastmaster
@@ -190,6 +264,198 @@ _Equipment included for convenience - characters recruit with basic gear_
 - **Best MATK**: Black Mage (11 growth)
 - **Best MDEF**: Alchemist (11 growth)
 - **Best SPD**: Beastmaster
+
+---
+
+## MOOGLE OPTIMIZATION BUILDS
+
+### Watk/Wdef/Spd Build
+
+- **Recruit as**: Juggler
+- **Target**: 64 SPD, 656 WATK, 654 WDEF
+- **Distribution**: 34 levels Juggler + 35 levels Moogle Knight
+- **Final SPD**: 127
+- **Best for**: Front-line physical sweepers/tanks (Moogle Knight)
+
+### Matk/Mdef/Spd Build
+
+- **Recruit as**: Time Mage
+- **Target**: 620 MATK, 613 MDEF, 77 SPD
+- **Distribution**: 18 levels Chocobo Rider + 51 levels Time Mage
+- **Final SPD**: 115
+- **Best for**: Mid-line magic users (Black Mage, Fusilier)
+
+### Spd/Watk Build
+
+- **Recruit as**: Chocobo Rider
+- **Target**: 55 SPD, 760 WATK
+- **Distribution**: 43 levels Chocobo Rider + 26 levels Moogle Knight
+- **Final WATK**: 757/189
+- **Best for**: Rear-line status affliction (Fusilier, Flintlock, Tinker)
+
+### Spd/Matk Build
+
+- **Recruit as**: Chocobo Rider
+- **Target**: 756 MATK
+- **Distribution**: 25 levels Black Mage + 44 levels Chocobo Rider
+- **Final MATK**: 757/189
+- **Best for**: Rear-line magic ranged (Time Mage)
+
+### Best Stats by Job
+
+- **Best HP**: Moogle Knight
+- **Best MP**: Time Mage
+- **Best MATK**: Black Mage
+- **Best MDEF**: Black/Time Mage
+- **Best SPD**: Chocobo Rider/Juggler
+
+---
+
+## BANGAA OPTIMIZATION BUILDS
+
+### Watk/Spd Build
+
+- **Recruit as**: Trickster
+- **Target**: 59 SPD, 725 WATK
+- **Distribution**: 60 levels Master Monk + 9 levels Trickster
+- **Final SPD**: 141
+- **Best for**: Front-line physical sweepers (Master Monk, Dragoon with MATK bonus)
+
+### Watk/Wdef/Spd Build
+
+- **Recruit as**: Master Monk
+- **Target**: 585 WATK, 689 WDEF
+- **Distribution**: 46 levels Defender + 23 levels Master Monk
+- **Final SPD**: 119
+- **Best for**: Front-line tanking (Gladiator, Defender)
+
+### Watk/Wdef/HP Build
+
+- **Recruit as**: Gladiator
+- **Target**: 552 WATK, 677 WDEF
+- **Distribution**: 42 levels Defender + 27 levels Warrior
+- **Final SPD**: 107
+- **Best for**: Defense-oriented front-line tanks
+
+### Matk/Spd Build
+
+- **Recruit as**: Trickster
+- **Strategy**: 100% Trickster leveling
+- **Result**: Maxed SPD and MATK (70 overgrowth)
+- **Best for**: Rear-line Tricksters (limited third stat growth)
+
+### Best Stats by Job
+
+- **Best HP**: Warrior
+- **Best WATK**: Gladiator (12 growth)
+- **Best MATK**: Trickster
+- **Best WDEF**: Defender
+- **Best SPD**: Trickster (88% chance)
+
+---
+
+## VIERA OPTIMIZATION BUILDS
+
+### Matk/Spd Build
+
+- **Recruit as**: Green Mage
+- **Target**: 62 SPD, 683 MATK
+- **Distribution**: 44 levels Summoner + 25 levels Green Mage
+- **Final SPD**: 142
+- **Best for**: Fast magic users (Red Mage, Summoner)
+
+### Watk/Spd/Mdef Build
+
+- **Recruit as**: Assassin
+- **Target**: 690 WATK, 56 SPD
+- **Distribution**: 23 levels Assassin + 46 levels Sniper
+- **Final SPD**: 142
+- **Best for**: Ranged physical (Sniper, Assassin)
+
+### Watk/Spd/HP/Wdef Build
+
+- **Recruit as**: Assassin
+- **Strategy**: 69 levels Fencer
+- **Final SPD**: 141
+- **Best for**: Melee physical (Fencer, Spellblade)
+
+### Best Stats by Job
+
+- **Best HP**: Fencer
+- **Best WATK**: Sniper
+- **Best MATK**: Summoner
+- **Best WDEF**: Spellblade
+- **Best MDEF**: White Mage
+- **Best SPD**: Assassin
+
+---
+
+## GRIA OPTIMIZATION BUILDS
+
+### Watk/Spd Build
+
+- **Recruit as**: Raptor
+- **Target**: 71 SPD, 650 WATK
+- **Distribution**: 40 levels Raptor + 29 levels Ravager
+- **Weakness**: 748/187 WDEF
+- **Best for**: Rear-line Hunters (low defense growth)
+
+### Watk/Wdef/Mdef Build
+
+- **Recruit as**: Ravager
+- **Target**: 617 WATK, 650 WDEF
+- **Distribution**: 32 levels Ravager + 37 levels Hunter
+- **Final WDEF/MDEF**: 868/217; 730/182
+- **Best for**: Front-line Ravagers and Raptors
+
+### Mdef/Matk/Wdef Build
+
+- **Recruit as**: Raptor
+- **Target**: 685 MATK, 757 WDEF/MDEF
+- **Strategy**: 69 levels Geomancer
+- **Best for**: Either all-out MATK (Raptor) or all-out defense (Geomancer)
+
+### Best Stats by Job
+
+- **Best HP**: Ravager
+- **Best WATK**: Ravager
+- **Best MATK**: Raptor
+- **Best WDEF**: Geomancer
+- **Best MDEF**: Geomancer
+- **Best SPD**: Hunter
+
+---
+
+## SEEQ OPTIMIZATION BUILDS
+
+### Watk/Spd Build
+
+- **Recruit as**: Ranger
+- **Target**: 66 SPD, 689 WATK
+- **Distribution**: 23 levels Ranger + 46 levels Berserker
+- **Final SPD**: 121
+- **Best for**: Rear-line Rangers (low defense growth)
+
+### Watk/Wdef Build
+
+- **Recruit as**: Lanista
+- **Target**: 652 WATK, 654 WDEF
+- **Distribution**: 54 levels Lanista + 15 levels Berserker
+- **Best for**: Front-line Berserkers and Lanistas
+
+### Matk Build
+
+- **Options**: Ranger (better SPD growth) or Viking (better MDEF growth)
+- **Note**: Magic Seeq builds are rare but viable
+
+### Best Stats by Job
+
+- **Best HP**: Berserker
+- **Best WATK**: Berserker
+- **Best MATK**: Viking
+- **Best WDEF**: Lanista
+- **Best MDEF**: Viking
+- **Best SPD**: Ranger
 
 ---
 
