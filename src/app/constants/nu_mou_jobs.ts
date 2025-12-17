@@ -7,22 +7,22 @@ export const nu_mou_white_mage: Job = {
   name: 'White Mage',
   race: Race.NU_MOU,
   base: {
-    HP: 82,
-    MP: 28,
-    WATK: 58,
-    WDEF: 72,
-    MATK: 82,
-    MDEF: 86,
-    SPD: 56,
+    HP: 79,
+    MP: 36,
+    WATK: 64,
+    WDEF: 73,
+    MATK: 84,
+    MDEF: 80,
+    SPD: 58,
   },
   rate: {
-    HP: 6,
-    MP: 3,
-    WATK: 5,
+    HP: 5,
+    MP: 6,
+    WATK: 6,
     WDEF: 7,
     MATK: 8,
-    MDEF: 8,
-    SPD: 48, // 48% chance per level
+    MDEF: 9,
+    SPD: 52, // 52% chance per level
   },
 };
 
@@ -32,22 +32,22 @@ export const nu_mou_black_mage: Job = {
   name: 'Black Mage',
   race: Race.NU_MOU,
   base: {
-    HP: 76,
-    MP: 32,
+    HP: 77,
+    MP: 34,
     WATK: 60,
     WDEF: 68,
-    MATK: 86,
-    MDEF: 82,
-    SPD: 58,
+    MATK: 91,
+    MDEF: 96,
+    SPD: 56,
   },
   rate: {
     HP: 5,
-    MP: 3,
+    MP: 6,
     WATK: 6,
     WDEF: 6,
-    MATK: 9,
-    MDEF: 8,
-    SPD: 52, // 52% chance per level
+    MATK: 11,
+    MDEF: 10,
+    SPD: 46, // 46% chance per level
   },
 };
 
@@ -57,22 +57,22 @@ export const nu_mou_illusionist: Job = {
   name: 'Illusionist',
   race: Race.NU_MOU,
   base: {
-    HP: 78,
-    MP: 24,
-    WATK: 66,
-    WDEF: 70,
-    MATK: 78,
+    HP: 76,
+    MP: 42,
+    WATK: 60,
+    WDEF: 63,
+    MATK: 92,
     MDEF: 84,
-    SPD: 60,
+    SPD: 54,
   },
   rate: {
-    HP: 6,
-    MP: 2,
+    HP: 5,
+    MP: 7,
     WATK: 6,
-    WDEF: 7,
-    MATK: 7,
-    MDEF: 8,
-    SPD: 55, // 55% chance per level
+    WDEF: 6,
+    MATK: 9,
+    MDEF: 9,
+    SPD: 35, // 35% chance per level
   },
 };
 
@@ -82,22 +82,22 @@ export const nu_mou_time_mage: Job = {
   name: 'Time Mage',
   race: Race.NU_MOU,
   base: {
-    HP: 74,
-    MP: 36,
-    WATK: 54,
-    WDEF: 66,
-    MATK: 90,
-    MDEF: 88,
-    SPD: 62,
+    HP: 78,
+    MP: 38,
+    WATK: 59,
+    WDEF: 61,
+    MATK: 89,
+    MDEF: 96,
+    SPD: 57,
   },
   rate: {
     HP: 5,
-    MP: 4,
+    MP: 6,
     WATK: 5,
     WDEF: 6,
-    MATK: 9,
-    MDEF: 9,
-    SPD: 58, // 58% chance per level
+    MATK: 10,
+    MDEF: 10,
+    SPD: 50, // 50% chance per level
   },
 };
 
@@ -107,22 +107,22 @@ export const nu_mou_alchemist: Job = {
   name: 'Alchemist',
   race: Race.NU_MOU,
   base: {
-    HP: 80,
-    MP: 20,
-    WATK: 72,
-    WDEF: 74,
-    MATK: 74,
-    MDEF: 78,
-    SPD: 54,
+    HP: 81,
+    MP: 44,
+    WATK: 71,
+    WDEF: 64,
+    MATK: 90,
+    MDEF: 99,
+    SPD: 58,
   },
   rate: {
     HP: 6,
-    MP: 2,
+    MP: 7,
     WATK: 7,
-    WDEF: 7,
-    MATK: 7,
-    MDEF: 7,
-    SPD: 50, // 50% chance per level
+    WDEF: 6,
+    MATK: 10,
+    MDEF: 11,
+    SPD: 54, // 54% chance per level
   },
 };
 
@@ -132,22 +132,22 @@ export const nu_mou_beastmaster: Job = {
   name: 'Beastmaster',
   race: Race.NU_MOU,
   base: {
-    HP: 84,
-    MP: 16,
-    WATK: 78,
-    WDEF: 76,
-    MATK: 70,
-    MDEF: 74,
-    SPD: 56,
+    HP: 88,
+    MP: 19,
+    WATK: 91,
+    WDEF: 86,
+    MATK: 69,
+    MDEF: 72,
+    SPD: 59,
   },
   rate: {
     HP: 7,
-    MP: 1,
-    WATK: 8,
-    WDEF: 7,
+    MP: 2,
+    WATK: 10,
+    WDEF: 8,
     MATK: 6,
     MDEF: 7,
-    SPD: 53, // 53% chance per level
+    SPD: 60, // 60% chance per level
   },
 };
 
@@ -157,22 +157,22 @@ export const nu_mou_sage: Job = {
   name: 'Sage',
   race: Race.NU_MOU,
   base: {
-    HP: 78,
-    MP: 40,
-    WATK: 56,
-    WDEF: 70,
-    MATK: 94,
-    MDEF: 92,
-    SPD: 60,
+    HP: 84,
+    MP: 32,
+    WATK: 79,
+    WDEF: 73,
+    MATK: 89,
+    MDEF: 77,
+    SPD: 56,
   },
   rate: {
-    HP: 6,
+    HP: 7,
     MP: 4,
-    WATK: 5,
+    WATK: 8,
     WDEF: 7,
-    MATK: 10,
-    MDEF: 9,
-    SPD: 60, // 60% chance per level
+    MATK: 9,
+    MDEF: 8,
+    SPD: 48, // 48% chance per level
   },
 };
 
@@ -182,22 +182,22 @@ export const nu_mou_scholar: Job = {
   name: 'Scholar',
   race: Race.NU_MOU,
   base: {
-    HP: 76,
-    MP: 44,
-    WATK: 52,
-    WDEF: 68,
-    MATK: 96,
-    MDEF: 94,
-    SPD: 64,
+    HP: 85,
+    MP: 24,
+    WATK: 88,
+    WDEF: 77,
+    MATK: 78,
+    MDEF: 71,
+    SPD: 58,
   },
   rate: {
-    HP: 5,
-    MP: 5,
-    WATK: 4,
-    WDEF: 6,
-    MATK: 10,
-    MDEF: 9,
-    SPD: 62, // 62% chance per level
+    HP: 7,
+    MP: 3,
+    WATK: 10,
+    WDEF: 7,
+    MATK: 7,
+    MDEF: 7,
+    SPD: 58, // 58% chance per level
   },
 };
 
@@ -207,22 +207,22 @@ export const nu_mou_arcanist: Job = {
   name: 'Arcanist',
   race: Race.NU_MOU,
   base: {
-    HP: 72,
+    HP: 74,
     MP: 48,
-    WATK: 50,
-    WDEF: 64,
-    MATK: 98,
-    MDEF: 96,
-    SPD: 66,
+    WATK: 59,
+    WDEF: 60,
+    MATK: 87,
+    MDEF: 74,
+    SPD: 53,
   },
   rate: {
-    HP: 4,
-    MP: 5,
-    WATK: 4,
-    WDEF: 5,
-    MATK: 11,
-    MDEF: 10,
-    SPD: 65, // 65% chance per level
+    HP: 5,
+    MP: 8,
+    WATK: 5,
+    WDEF: 6,
+    MATK: 8,
+    MDEF: 7,
+    SPD: 34, // 34% chance per level
   },
 };
 
